@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   },
   typedContainer: {
     position: "static",
-    marginLeft: "240px",
     textAlign: "center",
     height: "90vh",
     display: "flex",
