@@ -5,10 +5,17 @@ export const useStyles = makeStyles((theme) => ({
       position: "static",
       background: "#ffff",
       height: "100%",
-      width: "auto",
+      width: "90%",
+
+      display:"flex",
+      flexWrap:"wrap",
+      justifyContent:"space-evenly",
+      marginTop:"20px"
+
     },
     cardContainer: {
-      maxWidth: 345,
+      maxWidth: 370,
+      height:"auto",
       margin: "3rem auto",
     },
   }));
