@@ -7,6 +7,7 @@ export const useStyles = makeStyles((theme) => ({
   appBar: {
     backgroundColor: "#ffff",
     height: "68px",
+    width:"100%",
     display: "flex",
     justifyContent: "center",
   },
@@ -15,16 +16,12 @@ export const useStyles = makeStyles((theme) => ({
     padding: "0px",
     display: "flex",
     justifyContent: "flex-end",
-
-    marginRight: "16px",
+    paddingRight: "16px",
   },
-  listItem: {
+  link: {
+    paddingRight:"10px",
     borderRadius: "10px",
     color:"black",
     width: "auto",
-  },
-  linkTxt: {
-    color: "black",
-
   },
 }));

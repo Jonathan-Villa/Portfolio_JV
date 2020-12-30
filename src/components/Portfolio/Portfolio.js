@@ -15,7 +15,7 @@ function Portfolio() {
   return (
     <div id="portfolio" className={classes.mainContainer}>
       {projects.map((project, i) => (
-        <M.Card className={classes.cardContainer}>
+        <M.Card key={i} className={classes.cardContainer}>
           <M.CardMedia
             component="img"
             alt="Project 1"
