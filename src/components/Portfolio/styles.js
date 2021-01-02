@@ -3,7 +3,6 @@ import { makeStyles } from "@material-ui/core"
 export const useStyles = makeStyles((theme) => ({
     mainContainer: {
       position: "static",
-      background: "#ffff",
       height: "100%",
       width: "90%",
 

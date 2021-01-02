@@ -3,7 +3,7 @@ import { Container, Paper, Button, Box, Typography } from "@material-ui/core";
 import Send from "@material-ui/icons/Send";
 import { useStyles, InputField } from "./styles";
 
-const Contact = () => {
+const Footer = () => {
 
   const classes = useStyles();
   return (
@@ -12,7 +12,7 @@ const Contact = () => {
       component="div"
       className={classes.contactContainer}
     >
-      <Paper elevation={5}>
+      <Paper className={classes.paper} elevation={5}>
         <Container maxWidth="sm" component="form" className={classes.form}>
           <Typography variant="h5" className={classes.heading}>
             Contact me
@@ -52,4 +52,4 @@ const Contact = () => {
   );
 };
 
-export { Contact };
+export { Footer };

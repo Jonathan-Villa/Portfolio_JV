@@ -14,7 +14,8 @@ export const projects = [
       `,
       frontEnd: 'Front-end: ReactJS, Redux, JWT Authentication, Material-UI',
       backEnd: "Back-end: NodeJS, ExpressJS, PassportJS, MongoDB",
-      image: project5,
+      url: project5,
+      width: '35%',
     },
     {
       name: "React Google Map Mania",
@@ -22,6 +23,7 @@ export const projects = [
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
+      width: '35%',
     },
     {
       name: "Project 3",
@@ -29,7 +31,8 @@ export const projects = [
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
-      image: project3,
+      url: project3,
+      width: '30%',
     },
     {
       name: "Project 4",
@@ -37,7 +40,8 @@ export const projects = [
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
-      image: project4,
+      url: project4,
+      width: '35%',
     },
     {
       name: "Project 5",
@@ -45,7 +49,8 @@ export const projects = [
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
-      image: project5,
+      url: project5,
+      width: '30%',
     },
     {
       name: "Project 6",
@@ -54,5 +59,6 @@ export const projects = [
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
       image: project6,
+      width: '35%',
     },
   ];

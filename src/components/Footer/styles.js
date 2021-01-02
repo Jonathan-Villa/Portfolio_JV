@@ -3,12 +3,13 @@ import TextField from "@material-ui/core/TextField";
 
 export const useStyles = makeStyles((theme) => ({
     contactContainer: {
-      background: "##f8f9fa",
-      height: "100vh",
+      backgroundColor:' #1b262c',
+      height: "50vh",
       position:"static",
       display: "flex",
       justifyContent: "center",
       alignItems: "center"
+      
     },
     heading: {
       color: "black",
@@ -16,13 +17,18 @@ export const useStyles = makeStyles((theme) => ({
       textTransform: "uppercase",
       marginBottom: "1rem",
     },
+    paper:{
+ 
+    }, 
     form: {
-      height:"500px",
+      margin:"20px",
+      position:"static",
+      height:"300px",
       display:"flex",
       flexDirection:"column",
       alignItems:"center",
       justifyContent:"center",
-      width:"500px",
+      width:"450px",
       borderRadius:"20px"
     },
     input: {

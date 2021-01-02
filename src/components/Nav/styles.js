@@ -1,27 +1,30 @@
-import { makeStyles } from "@material-ui/core/styles";
-
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    width: "100%",
+    height: "100%",
   },
   appBar: {
-    backgroundColor: "#ffff",
-    height: "68px",
-    width:"100%",
-    display: "flex",
-    justifyContent: "center",
+    backgroundColor: "#0f4c75",
+    height:"68px",
+    display:"flex",
+    justifyContent:"center"
   },
   list: {
-    margin: "0px",
-    padding: "0px",
-    display: "flex",
-    justifyContent: "flex-end",
-    paddingRight: "16px",
+    marginLeft:"16px",
+    display:"flex"
   },
   link: {
-    paddingRight:"10px",
-    borderRadius: "10px",
-    color:"black",
+    marginRight:"10px",
+    color: "#ffff",
     width: "auto",
+
+    "&:hover":{
+      backgroundColor:"#3282b8",
+      
+    }
   },
 }));
+

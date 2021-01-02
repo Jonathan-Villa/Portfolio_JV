@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import { BrowserRouter as Router } from "react-router-dom";
-import {NavBar} from "../src/components/Nav/NavBar"
+import { NavBar } from "./components/Nav/NavBar";
+import { Contact, Home, Portfolio, Resume } from "./components";
+import {Footer} from "./components"
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <header>
-          <NavBar/>
-      </header>
-      <App />
-    </Router>
+    <header>
+      <NavBar />
+    </header>
+    <App />
+
+    <footer>
+      <Footer/>
+    </footer>
   </React.StrictMode>,
   document.getElementById("root")
 );
