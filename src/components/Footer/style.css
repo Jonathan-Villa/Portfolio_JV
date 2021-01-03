@@ -1,0 +1,11 @@
+.svg{
+   fill: white; 
+}
+
+.iconGitHub:hover{
+    fill:#6c757d
+}
+
+.iconLinkedIn:hover{
+    fill:#0e76a8 
+}

@@ -2,67 +2,54 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
 
 export const useStyles = makeStyles((theme) => ({
-    contactContainer: {
+    mainContainer: {
       backgroundColor:' #1b262c',
-      height: "50vh",
-      position:"static",
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center"
-      
-    },
-    heading: {
-      color: "black",
-      textAlign: "center",
-      textTransform: "uppercase",
-      marginBottom: "1rem",
-    },
-    paper:{
- 
-    }, 
-    form: {
-      margin:"20px",
-      position:"static",
-      height:"300px",
+      height: "30vh",
       display:"flex",
       flexDirection:"column",
-      alignItems:"center",
+      justifyContent:"center"
+    },
+    subContainer:{
+      display:"flex",
+      height:"100%",
+      width:"100%",
       justifyContent:"center",
-      width:"450px",
-      borderRadius:"20px"
+      flexDirection:"column",
+
+
     },
-    input: {
-      color: "black",
+    footerTopWrapper:{
+      marginBottom:"10px",
+      width:"100%",
+      display:"flex",
+      flexDirection:"column",
+      alignItems:"flex-end"
     },
-    button: {
-      marginTop: "1rem",
-      color: "black",
-      borderColor: "black",
+    footerBottomWrapper:{
+  
+      display:"flex",
+      justifyContent:"space-between"
     },
-    field: {
-      margin: "1rem 0rem",
+
+    list: {
+     display:"flex",
     },
+    link:{
+      fontFamily:"Varela Round, san serif",
+      textAlign:"left",
+      width:"100%",
+      fontSize:"13px",
+      color:"#ffff",
+      "&:hover":{
+        color:"#3282b8",
+      }
+    },
+
+    btnIconList:{
+      padding:"0px"
+    }, 
+    btnIcons:{
+      padding:"0px 8px",
+    }
   }));
   
-  export const InputField = withStyles({
-    root: {
-      "& label.Mui-focused": {
-        color: "black",
-      },
-      "& label": {
-        color: "black",
-      },
-      "& .MuiOutlinedInput-root": {
-        "& fieldset": {
-          borderColor: "black",
-        },
-        "&:hover fieldset": {
-          borderColor: "#adb5bd",
-        },
-        "&.Mui-focused fieldset": {
-          color: "#fff",
-  
-        },
-      },
-    },
-  })(TextField);

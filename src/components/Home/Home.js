@@ -1,24 +1,35 @@
 import React from "react";
-import {Contact} from "../Footer/Footer"
 import { useStyles } from "./styles";
-import { Portfolio} from "../Portfolio/Portfolio"
+import WebSvg from "../../images/Web_design_SVG.svg";
+import { Typography, Container, Grid } from "@material-ui/core";
 
 const Home = () => {
   const classes = useStyles();
 
   return (
-    <div id="home" className={classes.root}>
-      <div className={classes.titlesContainer}>
-        <div className={classes.title}>
-          <h1>Jonathan Villa</h1>
-        </div>
+    <Container maxWidth="md" id="home" className={classes.root}>
+      <Grid className={classes.headingWrap}>
+        
+        <Grid item xs className={classes.heading}>
+          <Typography
+            style={{ fontFamily: "Varela Round, san serif" }}
+            variant="h2"
+          >
+            Jonathan Villa
+          </Typography>
+          <Typography
+            style={{ fontFamily: "Varela Round, san serif" }}
+            variant="h4"
+          >
+            Full-Stack Developer
+          </Typography>
+        </Grid>
 
-       
-      </div>
-
-
-
-    </div>
+        <Grid item xs className={classes.imgSvgWrapper}>
+          <img className={classes.svg} src={WebSvg} alt="Web design" />
+        </Grid>
+      </Grid>
+    </Container>
   );
 };
 
