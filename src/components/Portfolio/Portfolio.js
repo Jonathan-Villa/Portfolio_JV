@@ -1,36 +1,23 @@
-import React from "react";
-import { Container, Typography, ButtonBase } from "@material-ui/core/";
+import React, { useState } from "react";
+import { Container, Typography, ButtonBase, Button } from "@material-ui/core/";
 import { projects } from "./portfolioList";
 import { useStyles } from "./styles";
-
+import Grid from "@material-ui/core/Grid";
+import { Trail } from "react-spring/renderprops";
 function Portfolio(props) {
   const classes = useStyles();
 
   return (
     <Container
-      maxWidth="md"
+      disableGutters
+      maxWidth="xl"
       id="portfolio"
       className={classes.root}
       component="section"
     >
-      <Typography
-        style={{ fontFamily: "Varela Round, san serif" }}
-        variant="h4"
-        marked="center"
-        align="center"
-        component="h2"
-      >
-        Projects
-      </Typography>
-      <div className={classes.images}>
-        {projects.map((image, key) => (
-          <ButtonBase
-            key={key}
-            className={classes.imageWrapper}
-            style={{
-              width: image.width,
-            }}
-          >
+      {projects.map((image, key) => (
+        <Grid key={key} className={classes.images} style={image.style}>
+          <Grid item xs className={classes.imageWrapper}>
             <div
               className={classes.imageSrc}
               style={{
@@ -38,20 +25,22 @@ function Portfolio(props) {
               }}
             />
             <div className={classes.imageBackdrop} />
-            <div className={classes.imageButton}>
+            <ButtonBase className={classes.imageButton}>
               <Typography
+                className={classes.imageTitle}
+                style={{ color: "#ffff" }}
                 component="h3"
                 variant="h6"
                 color="inherit"
-                className={classes.imageTitle}
               >
                 {image.name}
                 <div className={classes.imageMarked} />
               </Typography>
-            </div>
-          </ButtonBase>
-        ))}
-      </div>
+            </ButtonBase>
+          </Grid>
+          {image.grid}
+        </Grid>
+      ))}
     </Container>
   );
 }

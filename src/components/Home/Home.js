@@ -3,30 +3,23 @@ import { useStyles } from "./styles";
 import WebSvg from "../../images/Web_design_SVG.svg";
 import { Typography, Container, Grid } from "@material-ui/core";
 
+const styleFontH2={
+    fontSize:"6rem",
+}
+
 const Home = () => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="md" id="home" className={classes.root}>
-      <Grid className={classes.headingWrap}>
-        
+    <Container maxWidth="xl" disableGutters className={classes.root}>
+      <Grid item xs={12} lg={8} className={classes.headingWrap}>
         <Grid item xs className={classes.heading}>
-          <Typography
-            style={{ fontFamily: "Varela Round, san serif" }}
-            variant="h2"
-          >
+          <Typography className={classes.txtHeading} style={styleFontH2} variant="h2">
             Jonathan Villa
           </Typography>
-          <Typography
-            style={{ fontFamily: "Varela Round, san serif" }}
-            variant="h4"
-          >
+          <Typography className={classes.txtHeading} variant="h4">
             Full-Stack Developer
           </Typography>
-        </Grid>
-
-        <Grid item xs className={classes.imgSvgWrapper}>
-          <img className={classes.svg} src={WebSvg} alt="Web design" />
         </Grid>
       </Grid>
     </Container>

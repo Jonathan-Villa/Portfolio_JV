@@ -1,64 +1,76 @@
-
+import Grid from "@material-ui/core/Grid";
 import project3 from "../../images/javascript-fullstack.jpg";
-import project4 from "../../images/mern-stack.jpg";
 import project5 from "../../images/react-redux.jpg";
-import project6 from "../../images/react.png";
+const styleGrid = {
+  boxSizing: "border-box",
+  padding: "20px",
+};
+
+const fontStyle = {
+  letterSpacing: ".09em",
+  fontSize: "1.2rem",
+  textAlign: "left",
+  color: "#fff",
+};
 
 export const projects = [
-    {
-      name: "Head Start",
-      description: `The purpose of this application was to allow 
+  {
+    name: "Live Demo",
+    description: `The purpose of this application was to allow 
       the Head Start organization, at Dominican University, 
       to create their time logs and reports in a more efficient matter – 
       time logs and reports were done manually on paper. 
       `,
-      frontEnd: 'Front-end: ReactJS, Redux, JWT Authentication, Material-UI',
-      backEnd: "Back-end: NodeJS, ExpressJS, PassportJS, MongoDB",
-      url: project5,
-      width: '50%',
-    },
-    {
-      name: "React Google Map Mania",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
+    frontEnd: "Front-end: ReactJS, Redux, JWT Authentication, Material-UI",
+    backEnd: "Back-end: NodeJS, ExpressJS, PassportJS, MongoDB",
+    url: project5,
+    width: "50%",
+    btnTitle: "Github",
+    github: "https://github.com/Jonathan-Villa/headstart.git",
+    grid: (
+      <Grid item xs lg={6} style={styleGrid}>
+        <h3 style={fontStyle}>
+          The purpose of this application was to allow the Head Start
+          organization, at Dominican University, to create their time logs and
+          reports in a more efficient matter – time logs and reports were done
+          manually on paper.
+        </h3>
+      </Grid>
+    ),
+  },
+  {
+    name: "Live Demo",
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
-      width: '50%',
+    width: "50%",
+    url: project3,
+    demo: "https://jv-ecommerce-v1.azurewebsites.net/",
+    style: {
+      display: "flex",
+      flexDirection: "row-reverse",
     },
-    {
-      name: "Project 3",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
+    btnTitle: "Github",
+    grid: (
+      <Grid item xs lg={6} style={styleGrid}>
+        <h3 style={fontStyle}>E-commerce</h3>
+      </Grid>
+    ),
+  },
+  {
+    name: "Live Demo",
+    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
       consequatur magni quod nesciunt necessitatibus molestiae non\
       eligendi, magnam est aliquam recusandae? Magnam soluta minus\
       iste alias sunt veritatis nisi dolores!`,
-      url: project3,
-      width: '50%',
-    },
-    {
-      name: "Project 4",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-      consequatur magni quod nesciunt necessitatibus molestiae non\
-      eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-      iste alias sunt veritatis nisi dolores!`,
-      url: project4,
-      width: '50%',
-    },
-    {
-      name: "Project 5",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-      consequatur magni quod nesciunt necessitatibus molestiae non\
-      eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-      iste alias sunt veritatis nisi dolores!`,
-      url: project5,
-      width: '50%',
-    },
-    {
-      name: "Project 6",
-      description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-      consequatur magni quod nesciunt necessitatibus molestiae non\
-      eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-      iste alias sunt veritatis nisi dolores!`,
-      image: project6,
-      width: '50%',
-    },
-  ];
+    url: project3,
+    width: "50%",
+    btnTitle: "Github",
+    grid: (
+      <Grid item xs lg={6} style={styleGrid}>
+        <h3 style={fontStyle}>LiveChat</h3>
+      </Grid>
+    ),
+  },
+];

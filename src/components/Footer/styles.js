@@ -3,7 +3,7 @@ import TextField from "@material-ui/core/TextField";
 
 export const useStyles = makeStyles((theme) => ({
     mainContainer: {
-      backgroundColor:' #1b262c',
+      backgroundColor:' #343a40',
       height: "30vh",
       display:"flex",
       flexDirection:"column",

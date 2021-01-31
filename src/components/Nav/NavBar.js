@@ -8,13 +8,17 @@ const linkItems = [
   { title: "Resume", to: "resume" },
 ];
 
+const fontSizeLink = {
+  fontSize:"1.2rem"
+}
+
 function NavBar() {
   const classes = useStyles();
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
       <nav className={classes.topNavBar}>
-        <div style={{ marginLeft: "24px" }}>
+        <div className={classes.topNavBarLogoWrapper}>
           <span>
             <a className={classes.topNavLogo} href="/">
               JV
@@ -25,7 +29,7 @@ function NavBar() {
         <List className={classes.list}>
           {linkItems.map((m, key) => (
             <ListItem className={classes.link} key={key}>
-              <Link to={m.to} smooth={true} duration={1000}>
+              <Link style={fontSizeLink} to={m.to} smooth={true} duration={1000}>
                 {m.title}
               </Link>
             </ListItem>

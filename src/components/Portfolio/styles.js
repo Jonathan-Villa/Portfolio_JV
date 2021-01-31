@@ -1,36 +1,39 @@
-import { makeStyles } from "@material-ui/core"
+import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(4),
+    paddingTop:"7%"
   },
   images: {
-    marginTop: theme.spacing(8),
     display: "flex",
-    flexWrap: "wrap",
-    justifyContent:"space-around"
+    width: "100%"
+  },
+  btnHide: {
+    display: "none",
   },
   imageWrapper: {
     position: "relative",
     display: "block",
     borderRadius: 0,
-    height: "40vh",
-    [theme.breakpoints.down("sm")]: {
-      width: "100% !important",
-      height: 100,
-    },
+    height: "30em",
+
     "&:hover": {
       zIndex: 1,
     },
     "&:hover $imageBackdrop": {
       opacity: 0.15,
+    
     },
     "&:hover $imageMarked": {
       opacity: 0,
     },
     "&:hover $imageTitle": {
-      border: "4px solid currentColor",
+      border: "4px solid #ffff",
+      transition: ".2s ease",
+    },
+    "&:hover $btnHide": {
+      display: "block",
+      color: "#ffff",
     },
   },
   imageButton: {
@@ -40,8 +43,10 @@ export const useStyles = makeStyles((theme) => ({
     top: 0,
     bottom: 0,
     display: "flex",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
+    width:"100%",
     color: theme.palette.common.white,
   },
   imageSrc: {
@@ -62,7 +67,8 @@ export const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("opacity"),
   },
   imageTitle: {
-    fontFamily:"Varela Round, san serif",
+    transition: ".3s ease",
+    fontFamily: "Varela Round, san serif",
     position: "relative",
     padding: `${theme.spacing(2)}px ${theme.spacing(4)}px 14px`,
   },

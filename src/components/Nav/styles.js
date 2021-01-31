@@ -2,49 +2,47 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appBar: {
-    width:"100%",
-    backgroundColor: "#0f4c75",
-    height:"68px",
-    display:"flex",
-   alignItems:"center",
-    justifyContent:"center"
+    width: "100%",
+    backgroundColor: "#212529",
+    height: "80px",
+    display: "flex",
+    justifyContent: "center",
   },
-  topNavBar:{
-    maxWidth:"960px",
-    width:"100%", 
-    display:"flex",
-    justifyContent:"space-between",
-    alignItems:"center"
+  topNavBar: {
+    width: "100%",
+    display: "flex",
+    justifyContent: "space-between",
+    height: "fit-content",
+    alignItems: "center",
   },
   list: {
-
-    display:"flex",
+    display: "flex",
   },
   link: {
-    marginRight:"10px",
+    marginRight: "10px",
     color: "#ffff",
     width: "auto",
-    cursor:"pointer",
-    "&:hover":{
-      color:"#3282b8",
-    }
+    cursor: "pointer",
+    "&:hover": {
+      color: "#adb5bd",
+    },
   },
-  hr:{
-    height:".25em",
-    width:"25%",
-    margin: "0",
-    background:"tomato",
-    transition:".3s ease-in-out"
+  topNavBarLogoWrapper: {
+    display: "flex",
+    justifyContent: "center",
+    marginLeft: "24px",
+    height: "100%",
+    alignItems: "center",
   },
-  topNavLogo:{
+  topNavLogo: {
+    height: "100%",
+    color: "#ffff",
+    textDecoration: "none",
+    fontSize: "1.2rem",
+    cursor: "pointer",
 
-    color:"#ffff",
-    textDecoration:"none",
-    fontSize:"15px",
-    cursor:"pointer",
-    "&:hover":{
-      color:"#3282b8",
-    }
-  }
+    "&:hover": {
+      color: "#adb5bd",
+    },
+  },
 }));
-
