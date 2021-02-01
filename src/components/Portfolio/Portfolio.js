@@ -1,16 +1,22 @@
 import React, { useState } from "react";
-import { Container, Typography, ButtonBase, Button } from "@material-ui/core/";
+import { Container, Typography, ButtonBase } from "@material-ui/core/";
 import { projects } from "./portfolioList";
 import { useStyles } from "./styles";
 import Grid from "@material-ui/core/Grid";
-import { Trail } from "react-spring/renderprops";
+import {DialogComponent} from "../Dialog/dialog"
+import Paper from "@material-ui/core/Paper"
+
 function Portfolio(props) {
   const classes = useStyles();
+  const [open, setOpen] = useState(false)
+
+  const handleClick=()=>{
+      setOpen(!open)
+  }
 
   return (
     <Container
-      disableGutters
-      maxWidth="xl"
+      maxWidth="lg"
       id="portfolio"
       className={classes.root}
       component="section"
@@ -25,7 +31,7 @@ function Portfolio(props) {
               }}
             />
             <div className={classes.imageBackdrop} />
-            <ButtonBase className={classes.imageButton}>
+            <ButtonBase className={classes.imageButton} onClick={handleClick}>
               <Typography
                 className={classes.imageTitle}
                 style={{ color: "#ffff" }}
@@ -41,6 +47,8 @@ function Portfolio(props) {
           {image.grid}
         </Grid>
       ))}
+
+      
     </Container>
   );
 }

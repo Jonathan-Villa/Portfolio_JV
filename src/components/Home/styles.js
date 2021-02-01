@@ -8,8 +8,8 @@ export const useStyles = makeStyles((theme) => ({
     height: "60vh",
     width: "100%",
     display: "flex",
-    justifyContent:"center",
-    alignItems:"center",
+    justifyContent: "flex-start",
+    alignItems: "center",
     zIndex: 1,
   },
   headingWrap: {
@@ -19,17 +19,18 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
   },
-  heading: {
-    color:"#fff",
-    display:"flex",
-    flexDirection:"column",
-    alignItems:"flex-start",
+  txtHeading: {
+    color: "#000",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
     width: "auto",
+    textAlign:"left"
   },
-  txtHeading:{
+  txtHeading: {
     fontFamily: "Varela Round, san serif",
-    width:"100%"
-  }, 
+    width: "100%",
+  },
   imgSvgWrapper: {
     height: "400px",
     width: "400px",

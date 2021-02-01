@@ -7,10 +7,10 @@ const styleGrid = {
 };
 
 const fontStyle = {
-  letterSpacing: ".09em",
+  letterSpacing: ".05em",
   fontSize: "1.2rem",
   textAlign: "left",
-  color: "#fff",
+  color: "#000",
 };
 
 export const projects = [
@@ -28,7 +28,7 @@ export const projects = [
     btnTitle: "Github",
     github: "https://github.com/Jonathan-Villa/headstart.git",
     grid: (
-      <Grid item xs lg={6} style={styleGrid}>
+      <Grid item xs lg={7} style={styleGrid}>
         <h3 style={fontStyle}>
           The purpose of this application was to allow the Head Start
           organization, at Dominican University, to create their time logs and

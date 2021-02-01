@@ -15,7 +15,7 @@ export const useStyles = makeStyles((theme) => ({
     position: "relative",
     display: "block",
     borderRadius: 0,
-    height: "30em",
+    height: "20em",
 
     "&:hover": {
       zIndex: 1,
