@@ -2,83 +2,47 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop:"7%"
+    paddingTop: "3%",
+    paddingBottom: "3%",
   },
-  images: {
-    display: "flex",
-    width: "100%"
-  },
-  btnHide: {
-    display: "none",
-  },
-  imageWrapper: {
-    position: "relative",
-    display: "block",
-    borderRadius: 0,
-    height: "20em",
 
-    "&:hover": {
-      zIndex: 1,
-    },
-    "&:hover $imageBackdrop": {
-      opacity: 0.15,
-    
-    },
-    "&:hover $imageMarked": {
-      opacity: 0,
-    },
-    "&:hover $imageTitle": {
-      border: "4px solid #ffff",
-      transition: ".2s ease",
-    },
-    "&:hover $btnHide": {
-      display: "block",
-      color: "#ffff",
-    },
+  gridContainerCardWrapper: {
+    display: "flex",
+    width: "100%",
+    height: "auto",
+    margin: "auto",
   },
-  imageButton: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
+  gridItemCardWrapper: {
+    boxSizing: "border-box",
+    padding: "24px",
+  },
+  cardWrapper: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
-    width:"100%",
-    color: theme.palette.common.white,
-  },
-  imageSrc: {
-    width: "100%",
+    minHeight: "350px",
     height: "100%",
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
+
+    [theme.breakpoints.down("sm")]: {},
   },
-  imageBackdrop: {
-    position: "absolute",
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    background: theme.palette.common.black,
-    opacity: 0.5,
-    transition: theme.transitions.create("opacity"),
+  mediaCard: {
+    flex: 1,
+    height: 0,
+    paddingTop: "56.25%",
+    objectFit: "contain",
   },
-  imageTitle: {
-    transition: ".3s ease",
-    fontFamily: "Varela Round, san serif",
-    position: "relative",
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px 14px`,
+
+  cardContentWrapper: {
+    flex: 1,
+
+    [theme.breakpoints.down("xs")]: {
+      flex: 0,
+    },
   },
-  imageMarked: {
-    height: 3,
-    width: 18,
-    background: theme.palette.common.white,
-    position: "absolute",
-    bottom: -2,
-    left: "calc(50% - 9px)",
-    transition: theme.transitions.create("opacity"),
+  btnCardWrapper: {
+    flex: 1,
+
+    [theme.breakpoints.down("sm")]: {
+      flex: 0,
+    },
   },
 }));

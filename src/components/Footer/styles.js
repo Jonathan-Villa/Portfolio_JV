@@ -35,13 +35,14 @@ export const useStyles = makeStyles((theme) => ({
      display:"flex",
     },
     link:{
-      fontFamily:"Varela Round, san serif",
+      fontFamily: "Merriweather, serif",
+      fontFamily: "Noto Sans SC, sans-serif",
       textAlign:"left",
       width:"100%",
       fontSize:"13px",
       color:"#ffff",
       "&:hover":{
-        color:"#3282b8",
+        color:"#adb5bd",
       }
     },
 

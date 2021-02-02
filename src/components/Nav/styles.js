@@ -3,7 +3,7 @@ import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appBar: {
     width: "100%",
-    backgroundColor: "#212529",
+    backgroundColor: "#ffff",
     height: "80px",
     display: "flex",
     justifyContent: "center",
@@ -16,10 +16,12 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
-    height: "fit-content",
+    height: "100%",
     alignItems: "center",
     position: "static",
-
+    color: "#000",
+    backgroundColor: "#ffff",
+    transition: ".4s ease",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
@@ -35,7 +37,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   link: {
     marginRight: "10px",
-    color: "#ffff",
     width: "auto",
     cursor: "pointer",
     "&:hover": {
@@ -98,7 +99,6 @@ export const useStyles = makeStyles((theme) => ({
 
   mobileDrawer: {
     display: "none",
-
     [theme.breakpoints.down("md")]: {
       display: "flex",
       flexDirection: "column",

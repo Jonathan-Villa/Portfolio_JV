@@ -15,62 +15,35 @@ const fontStyle = {
 
 export const projects = [
   {
-    name: "Live Demo",
-    description: `The purpose of this application was to allow 
-      the Head Start organization, at Dominican University, 
-      to create their time logs and reports in a more efficient matter – 
-      time logs and reports were done manually on paper. 
-      `,
+    name: "Head Start",
+    tools: " React.js, Redux, Node.js, Express.js, JWT",
     frontEnd: "Front-end: ReactJS, Redux, JWT Authentication, Material-UI",
     backEnd: "Back-end: NodeJS, ExpressJS, PassportJS, MongoDB",
     url: project5,
     width: "50%",
     btnTitle: "Github",
-    github: "https://github.com/Jonathan-Villa/headstart.git",
-    grid: (
-      <Grid item xs lg={7} style={styleGrid}>
-        <h3 style={fontStyle}>
-          The purpose of this application was to allow the Head Start
-          organization, at Dominican University, to create their time logs and
-          reports in a more efficient matter – time logs and reports were done
-          manually on paper.
-        </h3>
-      </Grid>
-    ),
+    repo: "https://github.com/Jonathan-Villa/headstart.git",
   },
   {
-    name: "Live Demo",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-      consequatur magni quod nesciunt necessitatibus molestiae non\
-      eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-      iste alias sunt veritatis nisi dolores!`,
+    name: "E-commerce",
+    tools: " React.js",
+    deployed: "Deployed with Azure DevOps",
     width: "50%",
     url: project3,
     demo: "https://jv-ecommerce-v1.azurewebsites.net/",
+    repo: "https://github.com/Jonathan-Villa/ecommerce-react-app.git",
     style: {
       display: "flex",
       flexDirection: "row-reverse",
     },
     btnTitle: "Github",
-    grid: (
-      <Grid item xs lg={6} style={styleGrid}>
-        <h3 style={fontStyle}>E-commerce</h3>
-      </Grid>
-    ),
   },
   {
-    name: "Live Demo",
-    description: `Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis\
-      consequatur magni quod nesciunt necessitatibus molestiae non\
-      eligendi, magnam est aliquam recusandae? Magnam soluta minus\
-      iste alias sunt veritatis nisi dolores!`,
+    name: "Live Chat",
+    tools: "React.js, Socket.io",
     url: project3,
     width: "50%",
     btnTitle: "Github",
-    grid: (
-      <Grid item xs lg={6} style={styleGrid}>
-        <h3 style={fontStyle}>LiveChat</h3>
-      </Grid>
-    ),
+    repo: "https://github.com/Jonathan-Villa/livechat-react-app.git",
   },
 ];

@@ -37,10 +37,11 @@ const Footer = () => {
         <div className={classes.footerBottomWrapper}>
           <span
             style={{
-              alignSelf:"flex-end", 
+              alignSelf: "flex-end",
               fontSize: ".75rem",
               color: "#ffff",
-              fontFamily: "Varela Round, san serif",
+              fontFamily: "Merriweather, serif",
+              fontFamily: "Noto Sans SC, sans-serif",
             }}
           >
             @ 2021 Jonathan Villa. All Rights Reserved.

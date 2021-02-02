@@ -1,23 +1,40 @@
 import React from "react";
-import { Button, Dialog, DialogActions, makeStyles } from "@material-ui/core";
+import {
+  Button,
+  Toolbar,
+  Dialog,
+  AppBar,
+  makeStyles,
+  IconButton,
+} from "@material-ui/core";
+import { AiOutlineClose } from "react-icons/ai";
 
 const useStyle = makeStyles(() => ({
-  root: {},
+  iframe: {
+    boxSizing: "border-box",
+    overflow: "hidden",
+    height: "90vh",
+    width: "100%",
+  },
 }));
 
-function DialogComponent({ open, onClose, click, src }) {
-  const styles = useStyle();
+function DialogComponent({ open, src, closeDialog }) {
+  const classes = useStyle();
 
   const handleClose = () => {
-    onClose(click);
+    closeDialog(open);
   };
 
   return (
     <Dialog maxWidth="lg" fullWidth onClose={handleClose} open={open}>
-      <embed
-        style={{ width: "100vw", height: "100vh", margin: "10px" }}
-        src={src}
-      />
+      <AppBar elevation={1} style={{ position: "relative", backgroundColor:"#ffff" }} >
+        <Toolbar>
+          <IconButton onClick={handleClose}>
+            <AiOutlineClose size="25px" fill="#000" />
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+      <iframe className={classes.iframe} src={src} />
     </Dialog>
   );
 }

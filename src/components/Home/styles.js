@@ -28,7 +28,8 @@ export const useStyles = makeStyles((theme) => ({
     textAlign:"left"
   },
   txtHeading: {
-    fontFamily: "Varela Round, san serif",
+    fontFamily: "Merriweather, serif",
+    fontFamily: "Noto Sans SC, sans-serif",
     width: "100%",
   },
   imgSvgWrapper: {

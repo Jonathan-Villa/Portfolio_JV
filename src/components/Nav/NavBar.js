@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AppBar, List, ListItem } from "@material-ui/core";
 import { useStyles } from "./styles";
 import { Link } from "react-scroll";
 import IconButton from "@material-ui/core/IconButton";
 import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 import "./styles.css";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 
+gsap.registerPlugin(ScrollTrigger);
 const linkItems = [
   { title: "Home", to: "home" },
   { title: "Portfolio", to: "portfolio" },
@@ -31,9 +34,28 @@ const menuDisable = {
 function NavBar() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
+  const ref = useRef(null);
+  const linksRef = useRef(null);
   const handleMenuClick = () => {
     setOpen(!open);
   };
+
+  useEffect(() => {
+    gsap.to(ref.current, {
+      backgroundColor: "#212529",
+      color: "#ffff",
+      duration: 0.3,
+      ease: "power1.inOut",
+
+      scrollTrigger: {
+        id: "appBarID",
+        start: "top+=10",
+        end: "top top",
+        markers: "true",
+        toggleActions: "restart none none reset",
+      },
+    });
+  }, []);
 
   return (
     <AppBar position="fixed" className={classes.appBar}>
@@ -44,7 +66,12 @@ function NavBar() {
           </IconButton>
         </div>
       ) : null}
-      <nav id="deskTopNav" className={classes.desktopNavBar}>
+      <nav
+        id="appBarID"
+        ref={ref}
+        id="deskTopNav"
+        className={classes.desktopNavBar}
+      >
         <div className={classes.desktopLogoWrapper}>
           <span>
             <a className={classes.topNavLogo} href="/">
@@ -54,7 +81,7 @@ function NavBar() {
         </div>
         <DrawerList />
       </nav>
-      
+
       <div className={classes.backDrop}>
         <nav
           className={classes.mobileDrawer}
