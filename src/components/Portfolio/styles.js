@@ -14,13 +14,15 @@ export const useStyles = makeStyles((theme) => ({
   },
   gridItemCardWrapper: {
     boxSizing: "border-box",
-    padding: "24px",
+    padding: "10px",
   },
   cardWrapper: {
     display: "flex",
     flexDirection: "column",
     minHeight: "350px",
     height: "100%",
+    opacity:"0",
+    transition:".5s",
 
     [theme.breakpoints.down("sm")]: {},
   },

@@ -12,25 +12,23 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     zIndex: 1,
   },
+  heading:{
+    position:"relative"
+  },
   headingWrap: {
-    position: "static",
+    position: "relative",
     width: "100%",
     height: "fit-content",
     display: "flex",
     alignItems: "center",
   },
+
   txtHeading: {
-    color: "#000",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    width: "auto",
-    textAlign:"left"
-  },
-  txtHeading: {
+    position:"relative",
     fontFamily: "Merriweather, serif",
     fontFamily: "Noto Sans SC, sans-serif",
     width: "100%",
+    maxHeight:"auto"
   },
   imgSvgWrapper: {
     height: "400px",

@@ -1,8 +1,29 @@
-
-
-@media(max-width: 960px){
+.overlay {
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    z-index: 999;
+    height: 100vh;
+    position: fixed;
+    top: 0%;
+    display: block;
+    right: 0%;
+    backdrop-filter: blur(1px);
+    animation: overlayAnimate 0.6s ease;
 }
 
-.d {}
+@keyframes overlayAnimate {
+    0% {
+        transform: translateZ(-3ch);
+        opacity: 0;
+    }
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}
 
-
+@media (min-width: 1280px) {
+    .overlay {
+        display: none;
+    }
+}

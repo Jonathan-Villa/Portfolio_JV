@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Typography, Button } from "@material-ui/core/";
 import { projects } from "./portfolioList";
 import { useStyles } from "./styles";
@@ -8,8 +8,10 @@ import Card from "@material-ui/core/Card";
 import CardMedia from "@material-ui/core/CardMedia";
 import CardAction from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import { Link } from "react-router-dom";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 
+gsap.registerPlugin(ScrollTrigger);
 const fontFamily = {
   fontFamily: "Merriweather, serif",
   fontFamily: "Noto Sans SC, sans-serif",
@@ -19,7 +21,7 @@ function Portfolio() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const [url, setURL] = useState("");
-  const [close, setClose] = useState(false);
+  const ref = useRef([]);
 
   const handleClick = (URL) => {
     setOpen(!open);
@@ -30,11 +32,40 @@ function Portfolio() {
     setOpen(!open);
   };
 
+  useEffect(() => {
+    gsap.fromTo(
+      ref.current,
+      {
+        yPercent: -35,
+        ease: "power1",
+      },
+      {
+        opacity: 1,
+        yPercent: 0,
+        duration: 0.1,
+        stagger: {
+          from: "start",
+          amount: 0.5,
+        },
+        scrollTrigger: {
+          id: "cards",
+          start: "top+=100",
+          toggleActions: "play none none reset",
+        },
+      }
+    );
+  }, []);
+
+  const handleRefs = (e) => {
+    if (e && !ref.current.includes(e)) {
+      ref.current.push(e);
+    }
+  };
+
   return (
     <Container
       maxWidth="lg"
       id="portfolio"
-      disableGutters
       className={classes.root}
       component="section"
     >
@@ -53,7 +84,13 @@ function Portfolio() {
             key={key}
             className={classes.gridItemCardWrapper}
           >
-            <Card elevation={3} className={classes.cardWrapper}>
+            <Card
+              key={key}
+              ref={handleRefs}
+              id="cards"
+              elevation={3}
+              className={classes.cardWrapper}
+            >
               <CardMedia image={image.url} className={classes.mediaCard} />
 
               <CardContent className={classes.cardContentWrapper}>

@@ -10,6 +10,7 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       alignItems: "flex-start",
+      backgroundColor: "#212529",
     },
   },
   desktopNavBar: {
@@ -21,7 +22,7 @@ export const useStyles = makeStyles((theme) => ({
     position: "static",
     color: "#000",
     backgroundColor: "#ffff",
-    transition: ".4s ease",
+    transition: ".2s ease",
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
@@ -42,6 +43,16 @@ export const useStyles = makeStyles((theme) => ({
     "&:hover": {
       color: "#adb5bd",
     },
+    [theme.breakpoints.down("md")]: {
+      width: "100%",
+      marginRight: "0px ",
+
+      "&:hover": {
+        backgroundColor: "#adb5bd",
+        color: "#000",
+        transition: ".2s ease",
+      },
+    },
   },
   desktopLogoWrapper: {
     display: "flex",
@@ -56,7 +67,7 @@ export const useStyles = makeStyles((theme) => ({
   },
   topNavLogo: {
     height: "100%",
-    color: "#ffff",
+    color: "#000",
     textDecoration: "none",
     fontSize: "1.2rem",
     cursor: "pointer",
@@ -88,9 +99,10 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       position: "relative",
-      height: "fit-content",
+      height: "100%",
       width: "100%",
       display: "flex",
+      backgroundColor: "#ff4646",
       justifyContent: "space-between",
       boxSizing: "border-box",
       padding: "10px",
@@ -98,36 +110,24 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   mobileDrawer: {
-    display: "none",
     [theme.breakpoints.down("md")]: {
       display: "flex",
       flexDirection: "column",
-      backgroundColor: "#212529",
       height: "100vh",
       width: "200px",
       justifyContent: "flex-start",
       backgroundColor: "grey",
       alignItems: "flex-start",
-      position: "absolute",
-      top: "0%",
-      left: "0%",
-      zIndex: "10000",
+      position: "fixed",
+      transform: "translateX(-200px)",
+      transition: ".4s ease",
+      zIndex: "9999",
+      backgroundColor: "#ffff",
+      boxShadow: "4px 0px 6px -2px rgba(0,0,0,.2)",
     },
   },
-
-  // backDrop: {
-  //   display: "none",
-
-  //   [theme.breakpoints.down("md")]: {
-  //     display: "block",
-  //     position: "absolute",
-  //     zIndex:"-1px",
-  //     opacity: ".4",
-  //     backgroundColor: "black",
-  //     width:"100% ",
-  //     height:"100vh",
-  //     top:"0%",
-  //     left:"0% "
-  //   },
-  // },
+  listMobileWrapper: {
+    width: "100%",
+    height: "100%",
+  },
 }));

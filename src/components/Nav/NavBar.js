@@ -26,77 +26,82 @@ const menuDisplay = {
   transition: ".4s ease",
 };
 
-const menuDisable = {
-  transform: "translateX(-200px)",
-  transition: ".4s ease",
-};
-
 function NavBar() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
   const linksRef = useRef(null);
-  const handleMenuClick = () => {
-    setOpen(!open);
-  };
 
   useEffect(() => {
     gsap.to(ref.current, {
-      backgroundColor: "#212529",
+      backgroundColor: "#ff4646",
       color: "#ffff",
       duration: 0.3,
-      ease: "power1.inOut",
+      ease: "power1",
 
       scrollTrigger: {
         id: "appBarID",
         start: "top+=10",
         end: "top top",
-        markers: "true",
         toggleActions: "restart none none reset",
       },
     });
   }, []);
 
+  const handleMenuClick = () => {
+    setOpen(true);
+  };
+  const handleMenuClose = () => {
+    setOpen(false);
+  };
+
   return (
-    <AppBar position="fixed" className={classes.appBar}>
-      {open ? (
+    <div>
+      <AppBar position="fixed" className={classes.appBar}>
         <div className={classes.mobileDisableWrapper}>
-          <IconButton className={classes.btnMenu} onClick={handleMenuClick}>
-            <AiOutlineMenu size="30px" fill="#fff" />
-          </IconButton>
-        </div>
-      ) : null}
-      <nav
-        id="appBarID"
-        ref={ref}
-        id="deskTopNav"
-        className={classes.desktopNavBar}
-      >
-        <div className={classes.desktopLogoWrapper}>
-          <span>
-            <a className={classes.topNavLogo} href="/">
-              JV
-            </a>
-          </span>
-        </div>
-        <DrawerList />
-      </nav>
-
-      <div className={classes.backDrop}>
-        <nav
-          className={classes.mobileDrawer}
-          style={open ? menuDisable : menuDisplay}
-        >
-          <div className={classes.btnMobileMenu}>
-            <IconButton onClick={handleMenuClick}>
-              <AiOutlineClose size="30px" />
+          {open ? (
+            <IconButton className={classes.btnMenu} onClick={handleMenuClose}>
+              <AiOutlineClose size="30px" fill="#fff" />
             </IconButton>
+          ) : (
+            <IconButton className={classes.btnMenu} onClick={handleMenuClick}>
+              <AiOutlineMenu size="30px" fill="#fff" />
+            </IconButton>
+          )}
+        </div>
+        <nav
+          id="appBarID"
+          ref={ref}
+          id="deskTopNav"
+          className={classes.desktopNavBar}
+        >
+          <div className={classes.desktopLogoWrapper}>
+            <span>
+              <a className={classes.topNavLogo} href="/">
+                JV
+              </a>
+            </span>
           </div>
-
           <DrawerList />
         </nav>
+      </AppBar>
+
+      <div>
+        <nav
+          className={classes.mobileDrawer}
+          style={open === true ? menuDisplay : null}
+        >
+          <div className={classes.listMobileWrapper}>
+            <DrawerList />
+          </div>
+        </nav>
+
+        <div
+          onClick={handleMenuClose}
+          className={open === true ? "overlay" : null}
+        />
       </div>
-    </AppBar>
+    </div>
   );
 }
 
