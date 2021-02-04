@@ -34,10 +34,10 @@ function NavBar() {
 
   useEffect(() => {
     gsap.to(ref.current, {
-      backgroundColor: "#ff4646",
+      boxShadow:
+        "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
       color: "#ffff",
       duration: 0.3,
-      ease: "power1",
 
       scrollTrigger: {
         id: "appBarID",
@@ -56,16 +56,16 @@ function NavBar() {
   };
 
   return (
-    <div>
+    <>
       <AppBar position="fixed" className={classes.appBar}>
         <div className={classes.mobileDisableWrapper}>
           {open ? (
             <IconButton className={classes.btnMenu} onClick={handleMenuClose}>
-              <AiOutlineClose size="30px" fill="#fff" />
+              <AiOutlineClose size="30px" fill="#000000" />
             </IconButton>
           ) : (
             <IconButton className={classes.btnMenu} onClick={handleMenuClick}>
-              <AiOutlineMenu size="30px" fill="#fff" />
+              <AiOutlineMenu size="30px" fill="#000000" />
             </IconButton>
           )}
         </div>
@@ -101,7 +101,7 @@ function NavBar() {
           className={open === true ? "overlay" : null}
         />
       </div>
-    </div>
+    </>
   );
 }
 

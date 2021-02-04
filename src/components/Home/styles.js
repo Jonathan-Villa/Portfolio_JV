@@ -1,34 +1,59 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 export const useStyles = makeStyles((theme) => ({
-  root: {
+  rootContainer: {
     position: "relative",
     marginTop: "80px",
     backgroundColor: "transparent",
-    height: "60vh",
+    height: "95vh",
     width: "100%",
     display: "flex",
-    justifyContent: "flex-start",
     alignItems: "center",
+    justifyContent: "center",
     zIndex: 1,
+
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
+    },
   },
-  heading:{
-    position:"relative"
+  heading: {
+    position: "relative",
   },
   headingWrap: {
+    top: "-4em",
     position: "relative",
     width: "100%",
     height: "fit-content",
     display: "flex",
     alignItems: "center",
+    paddingRight: "20px",
+
+    [theme.breakpoints.down("xs")]: {
+      top: "0%",
+  
+    },
   },
 
   txtHeading: {
-    position:"relative",
-    fontFamily: "Merriweather, serif",
-    fontFamily: "Noto Sans SC, sans-serif",
+    fontSize: "4.5rem",
     width: "100%",
-    maxHeight:"auto"
+    maxHeight: "auto",
+
+    [theme.breakpoints.down("md")]: {
+      fontSize: "4.0rem",
+    },
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "3.0rem",
+    },
+  },
+
+  txtSubHeading: {
+    width: "100%",
+    maxHeight: "auto",
+    fontSize: "2.5rem",
+    [theme.breakpoints.down("sm")]: {
+      fontSize: "1.4rem",
+    },
   },
   imgSvgWrapper: {
     height: "400px",

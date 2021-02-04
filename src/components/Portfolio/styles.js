@@ -2,8 +2,8 @@ import { makeStyles } from "@material-ui/core";
 
 export const useStyles = makeStyles((theme) => ({
   root: {
-    paddingTop: "3%",
-    paddingBottom: "3%",
+    paddingTop:"60px",
+    paddingBottom:"60px"
   },
 
   gridContainerCardWrapper: {

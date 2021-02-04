@@ -1,0 +1,50 @@
+.thinkBoxWrapper {
+    position: relative;
+    height: 400px;
+    width: 400px;
+    background-color: #0d7377;
+    top: -1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 4.5em;
+    letter-spacing: 0.2em;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.thinkBoxTxtWrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 0.95em;
+    line-height: 1em;
+}
+
+.txtBox {
+    color: #0d7377;
+}
+
+@media (max-width: 1280px) {
+    .thinkBoxWrapper {
+        height: 350px;
+        width: 350px;
+        font-size: 3.4em;
+    }
+}
+
+@media (max-width: 960px) {
+    .thinkBoxWrapper {
+        height: 300px;
+        width: 300px;
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 600px){
+    .thinkBoxWrapper {
+        height: 230px;
+        width: 230px;
+        font-size:1.8em;
+    }
+}

@@ -3,14 +3,16 @@ import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appBar: {
     width: "100%",
-    backgroundColor: "#ffff",
     height: "80px",
     display: "flex",
+    position: "fixed",
     justifyContent: "center",
-
+    boxShadow:"none",
+    backgroundColor: "#ffffff",
     [theme.breakpoints.down("md")]: {
       alignItems: "flex-start",
-      backgroundColor: "#212529",
+      boxShadow:"0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
+      backgroundColor:"#ffffff"
     },
   },
   desktopNavBar: {
@@ -19,9 +21,8 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     height: "100%",
     alignItems: "center",
-    position: "static",
-    color: "#000",
-    backgroundColor: "#ffff",
+    position: "relative",
+    backgroundColor: "transparent",
     transition: ".2s ease",
     [theme.breakpoints.down("md")]: {
       display: "none",
@@ -30,6 +31,7 @@ export const useStyles = makeStyles((theme) => ({
   list: {
     display: "flex",
     width: "auto",
+    position: "relative",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
@@ -39,6 +41,8 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     marginRight: "10px",
     width: "auto",
+    position: "relative",
+    color: "#000000",
     cursor: "pointer",
     "&:hover": {
       color: "#adb5bd",
@@ -49,7 +53,7 @@ export const useStyles = makeStyles((theme) => ({
 
       "&:hover": {
         backgroundColor: "#adb5bd",
-        color: "#000",
+        color: "#000000",
         transition: ".2s ease",
       },
     },
@@ -67,11 +71,11 @@ export const useStyles = makeStyles((theme) => ({
   },
   topNavLogo: {
     height: "100%",
-    color: "#000",
     textDecoration: "none",
     fontSize: "1.2rem",
     cursor: "pointer",
     display: "block",
+    color: "#000000",
     "&:hover": {
       color: "#adb5bd",
     },
@@ -91,6 +95,7 @@ export const useStyles = makeStyles((theme) => ({
       paddingBottom: "13px",
       paddingTop: "13px",
       boxSizing: "border-box",
+      position: "relative",
     },
   },
 
@@ -102,7 +107,7 @@ export const useStyles = makeStyles((theme) => ({
       height: "100%",
       width: "100%",
       display: "flex",
-      backgroundColor: "#ff4646",
+      backgroundColor: "#",
       justifyContent: "space-between",
       boxSizing: "border-box",
       padding: "10px",
@@ -110,6 +115,7 @@ export const useStyles = makeStyles((theme) => ({
   },
 
   mobileDrawer: {
+    display:"none",
     [theme.breakpoints.down("md")]: {
       display: "flex",
       flexDirection: "column",
@@ -119,11 +125,11 @@ export const useStyles = makeStyles((theme) => ({
       backgroundColor: "grey",
       alignItems: "flex-start",
       position: "fixed",
-      transform: "translateX(-200px)",
+      transform: "translateX(-300px)",
       transition: ".4s ease",
       zIndex: "9999",
       backgroundColor: "#ffff",
-      boxShadow: "4px 0px 6px -2px rgba(0,0,0,.2)",
+      boxShadow: "6px 3px 4px -1px rgba(0,0,0,.2)",
     },
   },
   listMobileWrapper: {

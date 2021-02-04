@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
+import Divider from "@material-ui/core/Divider";
 import { NavBar } from "./components/Nav/NavBar";
-import { Contact, Home, Portfolio, Resume } from "./components";
 import { Footer } from "./components";
 
 ReactDOM.render(
@@ -10,6 +10,7 @@ ReactDOM.render(
     <NavBar />
 
     <App />
+
     <footer>
       <Footer />
     </footer>

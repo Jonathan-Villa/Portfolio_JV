@@ -4,12 +4,13 @@ import TextField from "@material-ui/core/TextField";
 export const useStyles = makeStyles((theme) => ({
   subContainer: {
     display: "flex",
-    height: "30vh",
+    height: "100%",
     width: "100%",
-    justifyContent: "center",
     flexDirection: "column",
+
   },
   footerTopWrapper: {
+    marginTop:"60px",
     marginBottom: "10px",
     width: "100%",
     display: "flex",
@@ -17,6 +18,8 @@ export const useStyles = makeStyles((theme) => ({
     alignItems: "flex-end",
   },
   footerBottomWrapper: {
+    marginTop:"10px",
+    marginBottom: "60px",
     display: "flex",
     justifyContent: "space-between",
   },
@@ -27,13 +30,11 @@ export const useStyles = makeStyles((theme) => ({
   link: {
     fontFamily: "Merriweather, serif",
     fontFamily: "Noto Sans SC, sans-serif",
-    textAlign: "left",
+    textAlign: "center",
     width: "100%",
     fontSize: "13px",
     color: "#000",
-    "&:hover": {
-      color: "#adb5bd",
-    },
+
   },
 
   btnIconList: {
@@ -42,5 +43,10 @@ export const useStyles = makeStyles((theme) => ({
   btnIcons: {
     margin: "0px 8px",
     padding: "0px",
+
+    "&:hover":{
+      transition:".4s ease",
+      backgroundColor:"transparent"
+    }
   },
 }));
