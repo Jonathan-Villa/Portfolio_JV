@@ -13,7 +13,10 @@ export const useStyles = makeStyles((theme) => ({
     zIndex: 1,
 
     [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
+        flexDirection:"column",
+        justifyContent:"flex-start",
+        height:"100%", 
+
     },
   },
   heading: {
@@ -30,14 +33,13 @@ export const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("xs")]: {
       top: "0%",
-  
     },
   },
 
   txtHeading: {
     fontSize: "4.5rem",
     width: "100%",
-    maxHeight: "auto",
+    height: "auto",
 
     [theme.breakpoints.down("md")]: {
       fontSize: "4.0rem",

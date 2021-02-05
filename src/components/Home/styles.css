@@ -1,7 +1,7 @@
 .thinkBoxWrapper {
     position: relative;
-    height: 400px;
-    width: 400px;
+    height: 6em;
+    width: 6em;
     background-color: #0d7377;
     top: -1em;
     display: flex;
@@ -27,24 +27,19 @@
 
 @media (max-width: 1280px) {
     .thinkBoxWrapper {
-        height: 350px;
-        width: 350px;
         font-size: 3.4em;
+        top:0;
     }
 }
 
 @media (max-width: 960px) {
     .thinkBoxWrapper {
-        height: 300px;
-        width: 300px;
-        font-size: 2.5em;
+        font-size: 2.8em;
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 600px) {
     .thinkBoxWrapper {
-        height: 230px;
-        width: 230px;
-        font-size:1.8em;
+        font-size: 1.8em;
     }
 }

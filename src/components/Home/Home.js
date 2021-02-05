@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <Container id="home" maxWidth="lg" className={classes.rootContainer}>
-      <Grid item xs className={classes.heading}>
+      <Grid item xs={12} className={classes.heading}>
         <h2 className={classes.txtHeading}>Jonathan Villa</h2>
         <h4 className={classes.txtSubHeading}>Full-Stack Developer</h4>
       </Grid>
