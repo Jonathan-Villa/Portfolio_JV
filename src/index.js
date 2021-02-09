@@ -1,19 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import Divider from "@material-ui/core/Divider";
 import { NavBar } from "./components/Nav/NavBar";
 import { Footer } from "./components";
+import Store from "./store/Store";
+import Divider from "@material-ui/core/Divider"
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Store>
     <NavBar />
 
     <App />
 
     <footer>
+      <Divider/>
       <Footer />
     </footer>
-  </React.StrictMode>,
+  </Store>,
   document.getElementById("root")
 );

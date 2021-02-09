@@ -8,16 +8,17 @@ const Home = () => {
 
   return (
     <Container id="home" maxWidth="lg" className={classes.rootContainer}>
-      <Grid item xs={12} className={classes.heading}>
+      <Grid item xs={12} lg className={classes.heading}>
         <h2 className={classes.txtHeading}>Jonathan Villa</h2>
         <h4 className={classes.txtSubHeading}>Full-Stack Developer</h4>
+        <span className="bg" />
       </Grid>
 
       <div className="thinkBoxWrapper">
         <div className="thinkBoxTxtWrapper">
-          <span className="txtThink">Think</span>
-          <span className="txtOutside">Outside</span>
-          <span className="txtOutside">The</span>
+          <span className="txtInBox">Think</span>
+          <span className="txtInBox">Outside</span>
+          <span className="txtInBox">The</span>
           <span className="txtBox">Box</span>
         </div>
       </div>

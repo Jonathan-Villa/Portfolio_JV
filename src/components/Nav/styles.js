@@ -2,27 +2,25 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appBar: {
-    width: "100%",
-    height: "80px",
+    height: "60px",
     display: "flex",
     position: "fixed",
     justifyContent: "center",
-    boxShadow:"none",
-    backgroundColor: "#ffffff",
+    boxShadow: "none",
+    background: "transparent",
     [theme.breakpoints.down("md")]: {
       alignItems: "flex-start",
-      boxShadow:"0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
-      backgroundColor:"#ffffff"
     },
   },
   desktopNavBar: {
+    color: "#000000",
     width: "100%",
     display: "flex",
     justifyContent: "space-between",
     height: "100%",
     alignItems: "center",
     position: "relative",
-    backgroundColor: "transparent",
+    backgroundColor: "#2176ff",
     transition: ".2s ease",
     [theme.breakpoints.down("md")]: {
       display: "none",
@@ -32,6 +30,8 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     width: "auto",
     position: "relative",
+    height: "100%",
+    color: "#000000",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
@@ -39,21 +39,25 @@ export const useStyles = makeStyles((theme) => ({
     },
   },
   link: {
+    fontSize: "1.1em",
     marginRight: "10px",
     width: "auto",
+    height: "auto",
     position: "relative",
-    color: "#000000",
+    color: "#ffffff",
+
     cursor: "pointer",
     "&:hover": {
-      color: "#adb5bd",
+      color: "#caf0f8",
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",
       marginRight: "0px ",
+      color: "#000000",
 
       "&:hover": {
-        backgroundColor: "#adb5bd",
-        color: "#000000",
+        backgroundColor: "#f79824",
+        color: "#ffffff",
         transition: ".2s ease",
       },
     },
@@ -72,12 +76,12 @@ export const useStyles = makeStyles((theme) => ({
   topNavLogo: {
     height: "100%",
     textDecoration: "none",
-    fontSize: "1.2rem",
+    fontSize: "1.1em",
     cursor: "pointer",
     display: "block",
-    color: "#000000",
+    color: "#ffffff",
     "&:hover": {
-      color: "#adb5bd",
+      color: "#f79824",
     },
 
     [theme.breakpoints.down("md")]: {
@@ -111,11 +115,12 @@ export const useStyles = makeStyles((theme) => ({
       justifyContent: "space-between",
       boxSizing: "border-box",
       padding: "10px",
+      backgroundColor: "#2176ff",
     },
   },
 
   mobileDrawer: {
-    display:"none",
+    display: "none",
     [theme.breakpoints.down("md")]: {
       display: "flex",
       flexDirection: "column",

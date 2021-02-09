@@ -1,12 +1,24 @@
-.svg{
-   fill: #000; 
+.svg {
+    fill: #000;
 }
 
-.iconGitHub:hover{
-    fill:#6c757d;
- 
+.iconGitHub:hover {
+    fill: #6c757d;
 }
 
-.iconLinkedIn:hover{
-    fill:#0e76a8 
+.iconLinkedIn:hover {
+    fill: #0e76a8;
+}
+
+#footerIcons {
+    size: 1.7em;
+}
+
+.footerSpan {
+    padding-right: 10px;
+}
+
+.footerSpanInfo {
+    width: 100%;
+    text-align: left;
 }

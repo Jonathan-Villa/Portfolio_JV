@@ -16,7 +16,6 @@ const linkItems = [
 ];
 
 const fontSizeLink = {
-  fontSize: "1.2rem",
   fontFamily: "Merriweather, serif",
   fontFamily: "Noto Sans SC, sans-serif",
 };
@@ -30,21 +29,29 @@ function NavBar() {
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const ref = useRef(null);
-  const linksRef = useRef(null);
 
   useEffect(() => {
-    gsap.to(ref.current, {
-      backgroundColor:"#48cae4",
-      boxShadow:
-        "0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%)",
+    let navAnim = gsap.to(ref.current, {
+      y: "-=60",
       color: "#ffff",
       duration: 0.3,
+      paused: true,
+      ease: "power2.In",
+    });
 
-      scrollTrigger: {
-        id: "appBarID",
-        start: "top+=10",
-        end: "top top",
-        toggleActions: "restart none none reset",
+    ScrollTrigger.create({
+      id: "appBarID",
+      start: "10px top",
+      end: 999999,
+      onUpdate: ({ progress, direction, isActive }) => {
+        if (direction === -1) {
+          navAnim.reverse();
+        }
+        if (direction === 1) {
+          navAnim.play();
+        } else if (direction === 1 && isActive === true) {
+          navAnim.play();
+        }
       },
     });
   }, []);
