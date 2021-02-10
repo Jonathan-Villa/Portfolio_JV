@@ -11,7 +11,7 @@ import { gsap } from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 const linkItems = [
   { title: "Home", to: "home" },
-  { title: "Portfolio", to: "portfolio" },
+  { title: "Portfolio", to: "projects" },
   { title: "Resume", to: "resume" },
 ];
 

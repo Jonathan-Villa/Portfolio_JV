@@ -21,6 +21,9 @@ const Home = () => {
           <span className="txtInBox">The</span>
           <span className="txtBox">Box</span>
         </div>
+        <svg>
+          
+        </svg>
       </div>
     </Container>
   );

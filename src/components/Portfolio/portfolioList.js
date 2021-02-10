@@ -1,6 +1,9 @@
 import Grid from "@material-ui/core/Grid";
 import project3 from "../../images/javascript-fullstack.jpg";
 import project5 from "../../images/react-redux.jpg";
+import { SiSocketDotIo, SiMaterialUi } from "react-icons/si";
+import { FaReact, FaNodeJs } from "react-icons/fa";
+
 const styleGrid = {
   boxSizing: "border-box",
   padding: "20px",
@@ -16,7 +19,22 @@ const fontStyle = {
 export const projects = [
   {
     name: "Head Start",
-    tools: " React.js, Redux, Node.js, Express.js, JWT",
+    tools: (
+      <>
+        <div>
+          <span>Front-end:</span>
+          <FaReact size="3.5em" />
+        </div>
+        <div>
+          <span>Back-end:</span>
+          <FaNodeJs size="3.5em" />
+        </div>
+        <div>
+          <span>UI Framework:</span>
+          <SiMaterialUi size="3.5em" />
+        </div>
+      </>
+    ),
     frontEnd: "Front-end: ReactJS, Redux, JWT Authentication, Material-UI",
     backEnd: "Back-end: NodeJS, ExpressJS, PassportJS, MongoDB",
     url: project5,
@@ -26,7 +44,18 @@ export const projects = [
   },
   {
     name: "E-commerce",
-    tools: " React.js",
+    tools: (
+      <>
+        <div style={{display:"flex"}}>
+          <span>Front-end:</span>
+          <FaReact size="3.5em" />
+        </div>
+        <div>
+          <span>UI Framework:</span>
+          <SiMaterialUi size="3.5em" />
+        </div>
+      </>
+    ),
     deployed: "Deployed with Azure DevOps",
     width: "50%",
     url: project3,
@@ -40,7 +69,22 @@ export const projects = [
   },
   {
     name: "Live Chat",
-    tools: "React.js, Socket.io",
+    tools: (
+      <>
+        <div>
+          <span>Front-end:</span>
+          <FaReact size="3.5em" />
+        </div>
+        <div>
+          <span>Back-end:</span>
+          <SiSocketDotIo size="3.5em" />
+        </div>
+        <div>
+          <span>UI Framework:</span>
+          <SiMaterialUi size="3.5em" />
+        </div>
+      </>
+    ),
     url: project3,
     width: "50%",
     btnTitle: "Github",

@@ -15,10 +15,34 @@
 }
 
 .footerSpan {
-    padding-right: 10px;
+    padding-right: 20px;
 }
 
 .footerSpanInfo {
     width: 100%;
     text-align: left;
+    height: auto;
+}
+
+.linkBtn {
+    cursor: pointer;
+    font-size: 0.98em;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    transition: 1s;
+    padding: 7px 14px 9px;
+}
+
+@keyframes contactSvgAnimate {
+    0% {
+        height: 0%;
+        transition: 3s;
+    }
+
+    100% {
+        transition: 3s;
+        height: 100%;
+        display: inline-block;
+    }
 }

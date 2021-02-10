@@ -35,7 +35,7 @@ function Portfolio() {
       {
         xPercent: -105,
         ease: "power1",
-        opacity:0
+        opacity: 0,
       },
       {
         opacity: 1,
@@ -64,9 +64,8 @@ function Portfolio() {
     <Container
       disableGutters
       maxWidth="xl"
-      id="portfolio"
+      id="projects"
       className={classes.root}
-      component="section"
     >
       <Container
         disableGutters
@@ -91,10 +90,32 @@ function Portfolio() {
               ref={handleRefs}
               className={classes.gridContentWrapper}
             >
-              <div className={classes.imgWrapper}>
+              <Grid item lg={6} item className={classes.imgWrapper}>
                 <img src={m.url} className={classes.img} />
                 <span className={classes.imgBackDrop} />
-              </div>
+              </Grid>
+
+              <Grid item xs={12} lg className={classes.projectInfoWrapper}>
+                <div style={{ width: "100% ", height: "100%", textAlign:"center" }}>
+                  <div>
+                    <h2>{m.name}</h2>
+                  </div>
+                  <div>
+                    <div
+                      style={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "space-evenly",
+                      }}
+                    >
+                      {m.tools}
+                    </div>
+                    <div>
+                      <p>Describe</p>
+                    </div>
+                  </div>
+                </div>
+              </Grid>
             </Container>
 
             <Divider
@@ -133,6 +154,8 @@ const useStyles = makeStyles((theme) => ({
   gridContentWrapper: {
     margin: "auto",
     maxWidth: "1280px",
+    display: "flex",
+    justifyContent: "space-between",
   },
   gridItemWrapper: {
     boxSizing: "border-box",
@@ -140,20 +163,19 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     position: "relative",
   },
+
   imgWrapper: {
     position: "relative",
     height: "100%",
-    maxWidth: "400px",
     overflow: "hidden",
     left: "0",
   },
   img: {
-    objectFit:"contain",
+    objectFit: "contain",
     width: "100%",
     height: "100%",
     position: "relative",
     display: "block",
-
   },
 
   imgBackDrop: {
@@ -175,11 +197,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 
-  btnRepo: {
-    zIndex: "9999",
-    height: "100%",
+  projectInfoWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
     width: "100%",
-    transition: ".3s ease",
+    height: "100%",
   },
 }));
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "@material-ui/core";
+import { Container, Divider } from "@material-ui/core";
 import { Context } from "../../store/Store";
 import ContactForm from "./ContactForm";
 import { nav, icons } from "./listItems";
@@ -9,6 +9,9 @@ import LinearProgress from "@material-ui/core/LinearProgress";
 import Paper from "@material-ui/core/Paper";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
+import { Link } from "react-scroll";
+import { ThemeProvider, createMuiTheme } from "@material-ui/core";
+import "./style.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -29,86 +32,91 @@ const Footer = () => {
         scrollTrigger: {
           id: "linksFooterWrapper",
           start: "85% 85%",
-
           toggleActions: "play none none reset",
         },
       }
     );
   }, []);
 
-  const handleRefs = (e) => {
-    if (e && !linkRefs.current.includes(e)) {
-      linkRefs.current.push(e);
-    }
-  };
-
   return (
-    <Container className={classes.footerParentWrapper} maxWidth="lg">
+    <Container
+      id="contact"
+      className={classes.footerParentWrapper}
+      maxWidth="lg"
+    >
       <Paper
         id="linksFooterWrapper"
-        ref={handleRefs}
+        ref={linkRefs}
         elevation={4}
         className={classes.mainContainer}
       >
-        {state.isMessageLoading === true ? (
-          <div className={classes.linearProgressWrapper}>
-            <LinearProgress color="primary" variant="indeterminate" />
-          </div>
-        ) : null}
-
-        <div className={classes.headingWrapper}>
-          <h3>Contact Me</h3>
-        </div>
-
-        <Container className={classes.innerWrapper}>
-          <ContactForm />
-          <Grid
-            className={classes.footerLeftWrapper}
-            item
-            xs={12}
-            sm={12}
-            md={5}
-            lg={4}
-          >
-            <div className={classes.list}>
-              {icons.map((m, key) => (
-                <div className={classes.liSpanWrapper} key={key}>
-                  {m.link ? (
-                    <div className={classes.liSpan}>
-                      <a className="footerSpan" href={m.link}>
-                        {m.icon}
-                      </a>
-                      <span className="footerSpan footerSpanInfo">
-                        {m.info}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className={classes.liSpan}>
-                      <span className="footerSpan">{m.icon}</span>
-                      <span className="footerSpan footerSpanInfo">
-                        {" "}
-                        {m.info}
-                      </span>
-                    </div>
-                  )}
-                </div>
-              ))}
+        <ThemeProvider theme={theme}>
+          {state.isMessageLoading === true ? (
+            <div className={classes.linearProgressWrapper}>
+              <LinearProgress color="primary" variant="indeterminate" />
             </div>
-          </Grid>
-        </Container>
+          ) : null}
 
-        <div className={classes.footerBottomWrapper}>
-          <span
-            style={{
-              width: "100%",
-              fontSize: ".75rem",
-              color: "#000",
-              textAlign: "left",
-            }}
-          >
-            @ 2021 Jonathan Villa. All Rights Reserved.
-          </span>
-        </div>
+          <div className={classes.headingWrapper}>
+            <h3>Contact Me</h3>
+          </div>
+
+          <Container className={classes.innerWrapper}>
+            <ContactForm />
+            <Grid
+              className={classes.footerLeftWrapper}
+              item
+              xs={12}
+              sm={12}
+              md={5}
+              lg
+            >
+              <div className={classes.list}>
+                <div className={classes.linkfooterWrapper}>
+                  {nav.map((m, key) => (
+                    <div key={key} className="linkBtn">
+                      <Link to={m.to} smooth={true} duration={1000}>
+                        {m.label}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+                <div className={classes.footerContactListWrapper}>
+                  {icons.map((m, key) => (
+                    <div className={classes.liSpanWrapper} key={key}>
+                      {m.link ? (
+                        <div className={classes.liSpan}>
+                          <a className="footerSpan" href={m.link}>
+                            {m.icon}
+                          </a>
+                          <span className="footerSpanInfo">{m.info}</span>
+                        </div>
+                      ) : (
+                        <div className={classes.liSpan}>
+                          <span className="footerSpan">{m.icon}</span>
+                          <span className="footerSpanInfo">{m.info}</span>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Grid>
+          </Container>
+
+          <div className={classes.footerBottomWrapper}>
+            <span
+              style={{
+                width: "100%",
+                fontSize: ".75rem",
+                color: "#000",
+                textAlign: "left",
+              }}
+            >
+              @ 2021 Jonathan Villa. All Rights Reserved.
+            </span>
+          </div>
+        </ThemeProvider>
       </Paper>
     </Container>
   );
@@ -119,6 +127,7 @@ const useStyles = makeStyles((theme) => ({
     boxSizing: "border-box",
     paddingTop: "80px",
     overflow: "hidden",
+    display: "block",
   },
   mainContainer: {
     transition: ".6s",
@@ -139,21 +148,35 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "1.4em",
     flexDirection: "column",
     boxSizing: "border-box",
+
+    [theme.breakpoints.down("sm")]: {
+      paddingLeft: "0px",
+      paddingRight: "0px",
+    },
   },
   innerWrapper: {
     width: "100%",
     minHeight: "100%",
     display: "flex",
-    justifyContent: "space-between",
+    position: "relative",
+    boxSizing: "border-box",
 
     [theme.breakpoints.down("sm")]: {
       flexDirection: "column",
     },
   },
   footerLeftWrapper: {
+    position: "static",
     display: "flex",
     flexDirection: "column",
-    width: "100% ",
+    width: "100%",
+    boxSizing: "border-box",
+    paddingBottom: "15px",
+    alignItems: "flex-start",
+
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "row",
+    },
   },
   footerBottomWrapper: {
     paddingTop: "15px",
@@ -162,13 +185,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: "24px",
     paddingRight: "24px",
-
     justifyContent: "flex-start",
 
     [theme.breakpoints.down("xs")]: {
       paddingRight: "20px",
       paddingLeft: "20px",
     },
+  },
+  footerContactListWrapper: {
+    width: "100%",
   },
 
   link: {
@@ -180,46 +205,55 @@ const useStyles = makeStyles((theme) => ({
   },
 
   list: {
+    marginTop: "15px",
     display: "flex",
     flexDirection: "column",
-    height: "auto",
+    height: "100%",
+    position: "relative",
     width: "100%",
 
     [theme.breakpoints.down("sm")]: {
       paddingTop: "15px",
-      flexDirection: "row",
-      justifyContent: "space-between",
-      flexWrap: "wrap",
+      flexDirection: "row-reverse",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column",
     },
   },
 
   liSpanWrapper: {
-    height: "100%",
+    maxHeight: "inherit",
     width: "100%",
     boxSizing: "border-box",
-    marginTop: "10px",
-    marginBottom: "10px",
+    marginBottom: "20px",
     transition: ".6s",
-    [theme.breakpoints.down("sm")]: {
+    whiteSpace: "pre-wrap",
+    marginRight: "0px",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-start",
+
+    [theme.breakpoints.down("xs")]: {
+      marginRight: "10px",
       width: "100%",
     },
   },
   liSpan: {
     textAlign: "center",
-    height: "auto",
+    height: "fit-content",
     width: "100%",
     fontSize: ".98em",
     display: "flex",
-    marginRight: "20px",
     wordWrap: "break-word",
+    wordBreak: "break-all",
 
     [theme.breakpoints.down("md")]: {
-      fontSize: ".90em",
+      fontSize: ".87em",
     },
     [theme.breakpoints.down("sm")]: {
-      fontSize: ".80em",
+      fontSize: ".82em",
       margin: "0px",
-      display: "flex",
       flex: 1,
     },
     [theme.breakpoints.down("xs")]: {
@@ -247,6 +281,36 @@ const useStyles = makeStyles((theme) => ({
     right: "0",
     top: "0",
   },
+
+  linkfooterWrapper: {
+    display: "flex",
+    width: "100%",
+    position: "relative",
+    marginBottom: "20px",
+    boxSizing: "border-box",
+    justifyContent: "space-between",
+
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      width: "fit-content",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "row",
+      width: "100%",
+    },
+  },
 }));
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#2176ff",
+    },
+    secondary: {
+      main: "#f79824",
+    },
+  },
+});
 
 export { Footer };

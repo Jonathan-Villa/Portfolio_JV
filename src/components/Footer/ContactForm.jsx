@@ -42,7 +42,7 @@ function ContactForm() {
   };
 
   return (
-    <Grid className={classes.rightFooterWrapper} item xs={12} sm={12} lg={8}>
+    <Grid className={classes.rightFooterWrapper} item xs={12} sm={12} md={8} lg={7}>
       <form
         onChange={handleChange}
         onSubmit={handleSubmit}
@@ -103,12 +103,13 @@ function ContactForm() {
 
 const useStyles = makeStyles((theme) => ({
   rightFooterWrapper: {
-    boxSizing: "border-box",
-    paddingRight: "40px",
+    
+    marginRight: "30px",
     fontSize: "1.0em",
+  
 
     [theme.breakpoints.down("sm")]: {
-      paddingRight: "0px",
+      marginRight: "0px",
     },
   },
   formWrapper: {

@@ -7,7 +7,11 @@ import {
 
 import "./style.css";
 
-export const nav = [];
+export const nav = [
+  { to: "home", label: "Home" },
+  { to: "projects", label: "Projects" },
+  { to: "contact", label: "Contact" },
+];
 
 export const icons = [
   {
