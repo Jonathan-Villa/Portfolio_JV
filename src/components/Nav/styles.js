@@ -111,6 +111,7 @@ export const useStyles = makeStyles((theme) => ({
       height: "100%",
       width: "100%",
       display: "flex",
+      overflow:"hidden",
       backgroundColor: "#",
       justifyContent: "space-between",
       boxSizing: "border-box",
@@ -123,6 +124,7 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
     [theme.breakpoints.down("md")]: {
       display: "flex",
+    
       flexDirection: "column",
       height: "100vh",
       width: "200px",

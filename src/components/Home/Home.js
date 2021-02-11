@@ -2,7 +2,7 @@ import React from "react";
 import { useStyles } from "./styles";
 import { Typography, Container, Grid } from "@material-ui/core";
 import "./styles.css";
-
+import Bg from "./Bg";
 const Home = () => {
   const classes = useStyles();
 
@@ -21,10 +21,8 @@ const Home = () => {
           <span className="txtInBox">The</span>
           <span className="txtBox">Box</span>
         </div>
-        <svg>
-          
-        </svg>
       </div>
+     
     </Container>
   );
 };

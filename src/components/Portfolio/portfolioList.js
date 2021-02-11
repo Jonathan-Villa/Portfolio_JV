@@ -1,36 +1,23 @@
-import Grid from "@material-ui/core/Grid";
 import project3 from "../../images/javascript-fullstack.jpg";
 import project5 from "../../images/react-redux.jpg";
 import { SiSocketDotIo, SiMaterialUi } from "react-icons/si";
 import { FaReact, FaNodeJs } from "react-icons/fa";
 
-const styleGrid = {
-  boxSizing: "border-box",
-  padding: "20px",
-};
-
-const fontStyle = {
-  letterSpacing: ".05em",
-  fontSize: "1.2rem",
-  textAlign: "left",
-  color: "#000",
-};
-
-export const projects = [
+const projects = [
   {
     name: "Head Start",
     tools: (
       <>
         <div>
-          <span>Front-end:</span>
+          <div>Front-end</div>
           <FaReact size="3.5em" />
         </div>
         <div>
-          <span>Back-end:</span>
+          <div>Back-end</div>
           <FaNodeJs size="3.5em" />
         </div>
         <div>
-          <span>UI Framework:</span>
+          <div>UI Framework</div>
           <SiMaterialUi size="3.5em" />
         </div>
       </>
@@ -46,12 +33,12 @@ export const projects = [
     name: "E-commerce",
     tools: (
       <>
-        <div style={{display:"flex"}}>
-          <span>Front-end:</span>
+        <div>
+          <div>Front-end</div>
           <FaReact size="3.5em" />
         </div>
         <div>
-          <span>UI Framework:</span>
+          <div>UI Framework</div>
           <SiMaterialUi size="3.5em" />
         </div>
       </>
@@ -72,15 +59,15 @@ export const projects = [
     tools: (
       <>
         <div>
-          <span>Front-end:</span>
+          <div>Front-end</div>
           <FaReact size="3.5em" />
         </div>
         <div>
-          <span>Back-end:</span>
+          <div>Back-end</div>
           <SiSocketDotIo size="3.5em" />
         </div>
         <div>
-          <span>UI Framework:</span>
+          <div>UI Framework</div>
           <SiMaterialUi size="3.5em" />
         </div>
       </>
@@ -91,3 +78,5 @@ export const projects = [
     repo: "https://github.com/Jonathan-Villa/livechat-react-app.git",
   },
 ];
+
+export default projects;

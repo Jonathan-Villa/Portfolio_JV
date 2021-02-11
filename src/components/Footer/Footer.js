@@ -31,7 +31,7 @@ const Footer = () => {
 
         scrollTrigger: {
           id: "linksFooterWrapper",
-          start: "85% 85%",
+          start: "92% 87%",
           toggleActions: "play none none reset",
         },
       }
