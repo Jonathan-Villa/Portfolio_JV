@@ -4,7 +4,6 @@ import { Home, Portfolio } from "./components";
 import AlertUser from "./components/Alert/AlertUser";
 import { Context } from "./store/Store";
 
-
 function App() {
   const [state, dispatch] = React.useContext(Context);
 
@@ -17,16 +16,17 @@ function App() {
   };
 
   return (
-    <main>
+    <>
       <AlertUser
         handleClose={handleClose}
         open={state.open}
         message={state.message}
         severity={state.severity}
       />
+
       <Home />
       <Portfolio />
-    </main>
+    </>
   );
 }
 

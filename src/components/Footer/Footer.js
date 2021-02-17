@@ -128,6 +128,7 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: "80px",
     overflow: "hidden",
     display: "block",
+    
   },
   mainContainer: {
     transition: ".6s",
@@ -305,7 +306,7 @@ const useStyles = makeStyles((theme) => ({
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#2176ff",
+      main: "#0094d8",
     },
     secondary: {
       main: "#f79824",

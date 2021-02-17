@@ -32,9 +32,8 @@ function NavBar() {
 
   useEffect(() => {
     let navAnim = gsap.to(ref.current, {
-      y: "-=60",
+      y: "-=90",
       color: "#ffff",
-      duration: 0.3,
       paused: true,
       ease: "power2.In",
     });
@@ -56,77 +55,79 @@ function NavBar() {
     });
   }, []);
 
-  const handleMenuClick = () => {
-    setOpen(true);
+  const handleMenuClose = (e) => {
+    console.log(e);
+    setOpen(!open);
   };
-  const handleMenuClose = () => {
-    setOpen(false);
-  };
+
+  const navLogo = (
+    <div className={classes.desktopLogoWrapper}>
+      <span>
+        <a className={classes.topNavLogo} href="/">
+          JV
+        </a>
+      </span>
+    </div>
+  );
 
   return (
     <>
       <AppBar position="fixed" className={classes.appBar}>
         <div className={classes.mobileDisableWrapper}>
-          {open ? (
-            <IconButton className={classes.btnMenu} onClick={handleMenuClose}>
+          <IconButton
+            className={classes.btnActiveMenu}
+            onClick={handleMenuClose}
+          >
+            {open ? (
               <AiOutlineClose size="30px" fill="#000000" />
-            </IconButton>
-          ) : (
-            <IconButton className={classes.btnMenu} onClick={handleMenuClick}>
+            ) : (
               <AiOutlineMenu size="30px" fill="#000000" />
-            </IconButton>
-          )}
+            )}
+          </IconButton>
         </div>
-        <nav
-          id="appBarID"
-          ref={ref}
-          id="deskTopNav"
-          className={classes.desktopNavBar}
-        >
-          <div className={classes.desktopLogoWrapper}>
-            <span>
-              <a className={classes.topNavLogo} href="/">
-                JV
-              </a>
-            </span>
-          </div>
+        <nav id="appBarID" ref={ref} className={classes.desktopNavBar}>
+          {navLogo}
           <DrawerList />
         </nav>
+
+        <div>
+          <nav
+            style={open === true ? menuDisplay : null}
+            className={classes.mobileDrawer}
+          >
+            <DrawerList handleListItemClick={handleMenuClose} />
+          </nav>
+
+          <div
+            onClick={handleMenuClose}
+            className={open === true ? "overlay" : null}
+          />
+        </div>
       </AppBar>
-
-      <div>
-        <nav
-          className={classes.mobileDrawer}
-          style={open === true ? menuDisplay : null}
-        >
-          <div className={classes.listMobileWrapper}>
-            <DrawerList />
-          </div>
-        </nav>
-
-        <div
-          onClick={handleMenuClose}
-          className={open === true ? "overlay" : null}
-        />
-      </div>
     </>
   );
 }
 
-const DrawerList = () => {
+const DrawerList = ({ handleListItemClick }) => {
   const classes = useStyles();
 
   return (
     <List className={classes.list}>
       {linkItems.map((m, key) => (
-        <ListItem className={classes.link} key={key}>
-          <Link style={fontSizeLink} to={m.to} smooth={true} duration={1000}>
-            {m.title}
-          </Link>
-        </ListItem>
+        <Link
+          onClick={(e) => handleListItemClick(e)}
+          key={key}
+          className={classes.link}
+          style={fontSizeLink}
+          to={m.to}
+          smooth={true}
+          duration={1000}
+        >
+          {m.title}
+        </Link>
       ))}
     </List>
   );
 };
 
-export { NavBar };
+export default NavBar;

@@ -1,9 +1,9 @@
 .overlay {
     background: rgba(0, 0, 0, 0.5);
     width: 100%;
-    z-index: 999;
     height: 100vh;
     position: fixed;
+    z-index: 999;
     top: 0%;
     display: block;
     right: 0%;
@@ -15,6 +15,7 @@
     0% {
         transform: translateZ(-3ch);
         opacity: 0;
+
     }
     100% {
         transform: translateZ(0);

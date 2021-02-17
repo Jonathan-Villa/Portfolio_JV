@@ -37,11 +37,10 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
-    width: "100%",
-    height: "100%",
-    margin: "auto",
-    position: "relative",
-    marginBottom: "80px",
+    maxWidth: "100%",
+    height: "auto",
+    marginTop:"5rem",
+    marginBottom: "5rem",
   },
 }));
 

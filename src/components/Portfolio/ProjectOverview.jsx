@@ -6,34 +6,38 @@ import Divider from "@material-ui/core/Divider";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import { default as projects } from "./portfolioList";
+import IconButton from "@material-ui/core/IconButton";
+import Paper from "@material-ui/core/Paper";
+import { FaArrowCircleDown } from "react-icons/fa";
+import ProjectInfo from "./ProjectInfo";
 gsap.registerPlugin(ScrollTrigger);
 
 function ProjectOverview() {
   const classes = useStyles();
   const ref = React.useRef([]);
+  const [openDropDown, setDropDown] = React.useState(false);
 
   React.useEffect(() => {
     gsap.fromTo(
       ref.current,
       {
         xPercent: -80,
-        ease: "circ",
+        ease: "ease-in",
         autoAlpha: 0,
       },
       {
         autoAlpha: 1,
         xPercent: 0,
-
         stagger: {
           from: "start",
           amount: 1,
         },
         scrollTrigger: {
-          scrub: 1.2,
-          id: "#cards",
-          start: "20% 50%",
-          end: "center 10%",
-          toggleActions: "play pause none reset",
+          scrub: 1.5,
+          id: "cards",
+          start: "500rem 450rem",
+          end: "center 100rem",
+          toggleActions: "play none none none",
         },
       }
     );
@@ -42,6 +46,12 @@ function ProjectOverview() {
   const handleRefs = (e) => {
     if (e && !ref.current.includes(e)) {
       ref.current.push(e);
+    }
+  };
+
+  const handleDropDownClick = (key) => {
+    if(key){
+      setDropDown(!openDropDown);
     }
   };
 
@@ -61,32 +71,28 @@ function ProjectOverview() {
           )}
 
           <Container
+            maxWidth="xl"
             id="cards"
             ref={handleRefs}
             className={classes.gridContentWrapper}
           >
-            <Grid item sm={12} md={12} lg={12} className={classes.imgWrapper}>
-              <div>
-                <img src={m.url} className={classes.img} />
-                <span className={classes.imgBackDrop} />
-              </div>
-            </Grid>
+            <div className={classes.imgWrapper}>
+              <img src={m.url} className={classes.img} />
+              <div className={classes.imgBackDrop} />
+            </div>
+            <div className={classes.dropDown}>
+              <IconButton onClick={() => handleDropDownClick(key)}>
+                <FaArrowCircleDown
+                  className={
+                    openDropDown
+                      ? classes.arrowIconActive
+                      : classes.arrowIconInactive
+                  }
+                />
+              </IconButton>
+            </div>
 
-            <Grid item xs={12} className={classes.projectInfoWrapper}>
-              <div className={classes.projectInfoInnerWrapper}>
-                <div className={classes.headingWrapper}>
-                  <h2>{m.name}</h2>
-                </div>
-                <div className={classes.projectInnerDescWrapper}>
-                  <div className={classes.projectInnerIconsWrapper}>
-                    {m.tools}
-                  </div>
-                  <div className={classes.projectInnerTextWrapper}>
-                    <p>Describe</p>
-                  </div>
-                </div>
-              </div>
-            </Grid>
+            <ProjectInfo open={openDropDown} name={m.name} tools={m.tools} />
           </Container>
 
           <Divider
@@ -104,56 +110,59 @@ function ProjectOverview() {
 }
 
 const useStyles = makeStyles((theme) => ({
-  main: {
-    width: "100% ",
-    height: "100%",
-    textAlign: "center",
-    maxHeight: "100%",
-    display: "block",
-  },
-  gridContentWrapper: {
-    margin: "auto",
-    display: "flex",
-    justifyContent: "space-between",
-
-    [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
-    },
-  },
   gridItemWrapper: {
     boxSizing: "border-box",
-    paddingTop: "80px",
-    paddingBottom: "80px",
+    paddingTop: "5rem",
+    paddingBottom: "5rem",
     display: "flex",
     maxWidth: "100%",
     position: "relative",
+    height: "90vh",
+    display: "flex",
+    justifyContent: "flex-start",
 
     [theme.breakpoints.down("sm")]: {},
   },
-
-  imgWrapper: {
-    position: "relative",
-    maxWidth: "fit-content",
+  gridContentWrapper: {
     height: "100%",
-    overflow: "hidden",
-    border: "1px solid #000000",
+    margin: "auto",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
 
     [theme.breakpoints.down("sm")]: {
-      maxHeight: "100%",
+      flexDirection: "column",
+    },
+  },
+
+  imgWrapper: {
+    left: "0rem",
+    position: "relative",
+    height: "auto ",
+    width: "40rem",
+    overflow: "hidden",
+    border: "1px solid #000000",
+    // boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
+
+    [theme.breakpoints.down("md")]: {
+      width: "30rem",
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      width: "100%",
     },
   },
   img: {
-    objectFit: "contain",
-    maxWidth: "100%",
-    maxHeight: "100%",
-    height: "auto",
-    display: "flex",
+    width: "100%",
+    margin: "auto",
+    height: "100%",
+    display: "block",
   },
 
   imgBackDrop: {
     position: "absolute",
     height: "100%",
-    width: "100%",
+    maxWidth: "100%",
     top: "0",
     left: "0",
     right: "0",
@@ -168,53 +177,31 @@ const useStyles = makeStyles((theme) => ({
       background: "rgba(0, 0, 0, 0.5)",
     },
   },
-
-  projectInfoWrapper: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    width: "100%",
-    maxHeight: "100%",
-  },
-
-  headingWrapper: {
-    fontSize: "1.2em",
-    paddingBottom: "15px",
+  desktopInfo: {
+    width: "50%",
 
     [theme.breakpoints.down("md")]: {
-      fontSize: "1.0em",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      fontSize: ".98em",
+      display: "none",
     },
   },
 
-  projectInfoInnerWrapper: {
-    width: "100% ",
-    height: "100%",
-    textAlign: "center",
-    maxHeight: "100%",
-    display: "block",
-  },
-
-  projectInnerDescWrapper: {
+  dropDown: {
+    backgroundColor: "#ffffff",
     width: "100%",
-    maxHeight: "100%",
+    height: "auto",
+    marginTop: "0.9375rem",
+    marginBottom: "0.9375rem",
     display: "flex",
-    flexDirection: "column",
+    justifyContent: "flex-end",
   },
-  projectInnerIconsWrapper: {
-    display: "flex",
-    margin: "15px 15px 0px 15px",
-    maxWidth: "100%",
-    alignItems: "center",
-    justifyContent: "space-evenly",
+
+  arrowIconActive: {
+    transform: "rotate(-180deg)",
+    transition: ".3s ease",
   },
-  projectInnerTextWrapper: {
-    maxHeight: "100%",
-    flex: 1,
+  arrowIconInactive: {
+    transform: "rotate(0deg)",
+    transition: ".3s ease",
   },
 }));
 

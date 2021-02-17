@@ -5,15 +5,19 @@
   box-sizing: border-box;
 }
 
-body {
+html {
+  font-size: 16px;
+}
 
-  background-color: #ffffff;
+body {
+  background-color: #e8e9eb;
   font-family: "Merriweather", serif;
   font-family: "Noto Sans SC", sans-serif;
+  font-size: large;
 }
 
 footer {
-  background-color: #31393c;
+  background-color: #223843;
   font-size: large;
 }
 
@@ -27,3 +31,9 @@ footer {
   display: flex;
   justify-content: center;
 }
+/* 
+#223843
+#0094d8
+#cad8de
+#e8e9eb
+#eff1f3 */

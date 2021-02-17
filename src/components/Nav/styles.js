@@ -2,25 +2,27 @@ import { makeStyles, withStyles } from "@material-ui/core/styles";
 import { Button, Tabs } from "@material-ui/core";
 export const useStyles = makeStyles((theme) => ({
   appBar: {
-    height: "60px",
+    height: "4.25rem",
     display: "flex",
-    position: "fixed",
+    zIndex: "99999999",
     justifyContent: "center",
     boxShadow: "none",
-    background: "transparent",
+    backgroundColor: "transparent",
+    width: "100%",
+
     [theme.breakpoints.down("md")]: {
       alignItems: "flex-start",
     },
   },
   desktopNavBar: {
-    color: "#000000",
+    color: "#ffffff",
     width: "100%",
     display: "flex",
+    backgroundColor: "#eff1f3",
     justifyContent: "space-between",
     height: "100%",
     alignItems: "center",
     position: "relative",
-    backgroundColor: "#2176ff",
     transition: ".2s ease",
     [theme.breakpoints.down("md")]: {
       display: "none",
@@ -28,36 +30,50 @@ export const useStyles = makeStyles((theme) => ({
   },
   list: {
     display: "flex",
-    width: "auto",
+    width: "100%",
+    justifyContent: "flex-end",
     position: "relative",
     height: "100%",
     color: "#000000",
+    marginRight: ".625rem",
 
     [theme.breakpoints.down("md")]: {
       flexDirection: "column",
+      height: "auto",
       width: "100%",
+      marginRight: "0",
     },
   },
   link: {
-    fontSize: "1.1em",
-    marginRight: "10px",
-    width: "auto",
+    fontSize: "1.1rem",
+    width: "8rem",
+    marginRight: "1rem",
+    textAlign: "center",
     height: "auto",
     position: "relative",
-    color: "#ffffff",
-
+    color: "#000000",
+    letterSpacing: ".04rem",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     cursor: "pointer",
+
     "&:hover": {
-      color: "#caf0f8",
+      backgroundColor: "#ccc",
+
+      transition: ".2s ease",
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",
-      marginRight: "0px ",
+      marginRight: "0",
       color: "#000000",
+      padding: "0.75rem",
+
+      justifyContent: "flex-start",
 
       "&:hover": {
-        backgroundColor: "#f79824",
-        color: "#ffffff",
+        backgroundColor: "#ccc",
+
         transition: ".2s ease",
       },
     },
@@ -65,8 +81,9 @@ export const useStyles = makeStyles((theme) => ({
   desktopLogoWrapper: {
     display: "flex",
     justifyContent: "center",
-    marginLeft: "24px",
+    marginLeft: "1.625rem",
     height: "100%",
+    width: "8rem",
     alignItems: "center",
     position: "static",
     [theme.breakpoints.down("md")]: {
@@ -76,10 +93,11 @@ export const useStyles = makeStyles((theme) => ({
   topNavLogo: {
     height: "100%",
     textDecoration: "none",
-    fontSize: "1.1em",
+    fontSize: "1.1rem",
     cursor: "pointer",
     display: "block",
-    color: "#ffffff",
+    letterSpacing: ".1rem",
+    color: "#000000",
     "&:hover": {
       color: "#f79824",
     },
@@ -91,13 +109,14 @@ export const useStyles = makeStyles((theme) => ({
 
   btnMobileMenu: {
     display: "none",
+    transition: "1s ease",
+  },
 
+  btnActiveMenu: {
     [theme.breakpoints.down("md")]: {
       display: "block",
-      width: "100%",
+      width: "auto",
       height: "fit-content",
-      paddingBottom: "13px",
-      paddingTop: "13px",
       boxSizing: "border-box",
       position: "relative",
     },
@@ -107,40 +126,35 @@ export const useStyles = makeStyles((theme) => ({
     display: "none",
 
     [theme.breakpoints.down("md")]: {
-      position: "relative",
       height: "100%",
       width: "100%",
+      position: "relative",
       display: "flex",
-      overflow:"hidden",
-      backgroundColor: "#",
+      overflow: "hidden",
+      zIndex: "999999999",
       justifyContent: "space-between",
       boxSizing: "border-box",
-      padding: "10px",
-      backgroundColor: "#2176ff",
+      padding: ".625rem 0px",
+      backgroundColor: "#0094d8",
     },
   },
 
   mobileDrawer: {
     display: "none",
     [theme.breakpoints.down("md")]: {
-      display: "flex",
-    
-      flexDirection: "column",
-      height: "100vh",
-      width: "200px",
-      justifyContent: "flex-start",
-      backgroundColor: "grey",
-      alignItems: "flex-start",
       position: "fixed",
+      display: "block",
+      zIndex: "9999",
+      width: "200px",
+      height: "100vh",
+      backgroundColor: "#eff1f3",
       transform: "translateX(-300px)",
       transition: ".4s ease",
-      zIndex: "9999",
-      backgroundColor: "#ffff",
       boxShadow: "6px 3px 4px -1px rgba(0,0,0,.2)",
     },
   },
   listMobileWrapper: {
+    height: "auto",
     width: "100%",
-    height: "100%",
   },
 }));
