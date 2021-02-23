@@ -4,7 +4,7 @@
     height: fit-content;
     width: 58rem;
     right: 10rem;
-    top: 28rem;
+    top: 30rem;
     bottom: 0;
 }
 
@@ -12,7 +12,6 @@
     display: block;
     margin: auto;
     box-sizing: border-box;
-    padding: 2rem;
     height: auto;
     object-fit: contain;
     object-position: center;
@@ -22,38 +21,41 @@
 
 @media (max-width: 1640px) {
     .bg-imgWrapper {
-        top: 30rem;
-        right: 0rem;
-        width: 52rem;
+        padding:0rem;
     }
 }
 
 @media (max-width: 1280px) {
     .bg-imgWrapper {
-        top: 35.6rem;
-        right: 0rem;
+      
+        right:1.5rem;
+        width: 53rem;
     }
 }
 
 @media (max-width: 960px) {
     .bg-imgWrapper {
-        top: 35.6rem;
-        width: 48rem;
+        width: 43rem;
     }
 }
 
 @media (max-width: 770px) {
     .bg-imgWrapper {
-        top: 39rem;
-        width: 38rem;
+        width: 40rem;
+    }
+}
+
+@media (max-width: 720px) {
+    .bg-imgWrapper {
+        top: 35rem;
+        width: 35rem;
     }
 }
 
 @media (max-width: 600px) {
     .bg-imgWrapper {
-        top: 43rem;
-
-        width: 26rem;
+        top:36rem;
+        width: 28rem;
     }
 
     .bg-img {
@@ -64,15 +66,15 @@
 
 @media (max-width: 485px) {
     .bg-imgWrapper {
-        top: 47rem;
+        top: 37rem;
         width: 20rem;
-        right: 1.5rem;
+        right: 1rem;
     }
 }
 
 @media (max-width: 350px) {
     .bg-imgWrapper {
-        top: 49rem;
+        top:38rem;
         width: 15rem;
         right: 1rem;
     }

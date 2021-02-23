@@ -42,7 +42,7 @@ const Footer = () => {
     <Container
       id="contact"
       className={classes.footerParentWrapper}
-      maxWidth="lg"
+      maxWidth="md"
     >
       <Paper
         id="linksFooterWrapper"
@@ -59,62 +59,48 @@ const Footer = () => {
 
           <div className={classes.headingWrapper}>
             <h3>Contact Me</h3>
+
+            <div className={classes.linkfooterWrapper}>
+              {nav.map((m, key) => (
+                <div key={key} className="linkBtn">
+                  <Link
+                    style={{ width: "2rem" }}
+                    to={m.to}
+                    smooth={true}
+                    duration={1000}
+                  >
+                    {m.label}
+                  </Link>
+                </div>
+              ))}
+            </div>
           </div>
 
           <Container className={classes.innerWrapper}>
             <ContactForm />
-            <Grid
-              className={classes.footerLeftWrapper}
-              item
-              xs={12}
-              sm={12}
-              md={5}
-              lg
-            >
-              <div className={classes.list}>
-                <div className={classes.linkfooterWrapper}>
-                  {nav.map((m, key) => (
-                    <div key={key} className="linkBtn">
-                      <Link to={m.to} smooth={true} duration={1000}>
-                        {m.label}
-                      </Link>
-                    </div>
-                  ))}
-                </div>
-                <div className={classes.footerContactListWrapper}>
-                  {icons.map((m, key) => (
-                    <div className={classes.liSpanWrapper} key={key}>
-                      {m.link ? (
-                        <div className={classes.liSpan}>
-                          <a className="footerSpan" href={m.link}>
-                            {m.icon}
-                          </a>
-                          <span className="footerSpanInfo">{m.info}</span>
-                        </div>
-                      ) : (
-                        <div className={classes.liSpan}>
-                          <span className="footerSpan">{m.icon}</span>
-                          <span className="footerSpanInfo">{m.info}</span>
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Grid>
           </Container>
 
           <div className={classes.footerBottomWrapper}>
-            <span
-              style={{
-                width: "100%",
-                fontSize: ".75rem",
-                color: "#000",
-                textAlign: "left",
-              }}
-            >
-              @ 2021 Jonathan Villa. All Rights Reserved.
-            </span>
+            <div className={classes.footerBottomCPWrapper}>
+              <span> @ 2021 Jonathan Villa. All Rights Reserved.</span>
+            </div>
+            <div className={classes.footerContactListWrapper}>
+              {icons.map((m, key) => (
+                <div className={classes.liSpanWrapper} key={key}>
+                  {m.link ? (
+                    <div className={classes.liSpan}>
+                      <a className="footerSpan" href={m.link}>
+                        {m.icon}
+                      </a>
+                    </div>
+                  ) : (
+                    <div className={classes.liSpan}>
+                      <a className="footerSpan">{m.icon}</a>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </ThemeProvider>
       </Paper>
@@ -125,10 +111,14 @@ const Footer = () => {
 const useStyles = makeStyles((theme) => ({
   footerParentWrapper: {
     boxSizing: "border-box",
-    paddingTop: "80px",
+    paddingTop: "0px",
     overflow: "hidden",
     display: "block",
-    
+
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "0px",
+      paddingRight: "0px",
+    },
   },
   mainContainer: {
     transition: ".6s",
@@ -153,6 +143,10 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("sm")]: {
       paddingLeft: "0px",
       paddingRight: "0px",
+    },
+
+    [theme.breakpoints.down("xs")]: {
+      borderRadius: "0px",
     },
   },
   innerWrapper: {
@@ -186,15 +180,26 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     paddingLeft: "24px",
     paddingRight: "24px",
-    justifyContent: "flex-start",
 
     [theme.breakpoints.down("xs")]: {
       paddingRight: "20px",
       paddingLeft: "20px",
     },
   },
-  footerContactListWrapper: {
+
+  footerBottomCPWrapper: {
     width: "100%",
+    fontSize: ".75rem",
+    color: "#000",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "flex-end",
+  },
+
+  footerContactListWrapper: {
+    width: "auto",
+    display: "flex",
+    justifyContent: "flex-end",
   },
 
   link: {
@@ -205,49 +210,21 @@ const useStyles = makeStyles((theme) => ({
     color: "#000",
   },
 
-  list: {
-    marginTop: "15px",
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-    position: "relative",
-    width: "100%",
-
-    [theme.breakpoints.down("sm")]: {
-      paddingTop: "15px",
-      flexDirection: "row-reverse",
-    },
-
-    [theme.breakpoints.down("xs")]: {
-      flexDirection: "column",
-    },
-  },
-
   liSpanWrapper: {
     maxHeight: "inherit",
-    width: "100%",
+    width: "auto",
     boxSizing: "border-box",
-    marginBottom: "20px",
-    transition: ".6s",
     whiteSpace: "pre-wrap",
-    marginRight: "0px",
     display: "flex",
     flexDirection: "column",
     justifyContent: "flex-start",
-
-    [theme.breakpoints.down("xs")]: {
-      marginRight: "10px",
-      width: "100%",
-    },
   },
   liSpan: {
     textAlign: "center",
     height: "fit-content",
-    width: "100%",
+    width: "auto",
     fontSize: ".98em",
     display: "flex",
-    wordWrap: "break-word",
-    wordBreak: "break-all",
 
     [theme.breakpoints.down("md")]: {
       fontSize: ".87em",
@@ -269,10 +246,13 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "20px",
     paddingLeft: "24px",
     paddingRight: "24px",
+    display: "flex",
+    justifyContent: "space-between",
 
     [theme.breakpoints.down("xs")]: {
       paddingRight: "20px",
       paddingLeft: "20px",
+      flexDirection: "column",
     },
   },
 
@@ -285,20 +265,16 @@ const useStyles = makeStyles((theme) => ({
 
   linkfooterWrapper: {
     display: "flex",
-    width: "100%",
+    width: "auto",
+    height: "auto",
+    fontSize: "1rem",
     position: "relative",
-    marginBottom: "20px",
     boxSizing: "border-box",
     justifyContent: "space-between",
-
-    [theme.breakpoints.down("sm")]: {
-      flexDirection: "column",
-      width: "fit-content",
-    },
+    alignItems: "center",
 
     [theme.breakpoints.down("xs")]: {
-      flexDirection: "row",
-      width: "100%",
+      justifyContent: "flex-start",
     },
   },
 }));

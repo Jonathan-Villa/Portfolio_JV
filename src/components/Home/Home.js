@@ -7,6 +7,10 @@ import Button from "@material-ui/core/Button";
 import BgImg from "../../images/landPageSVG.svg";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
 import { Link } from "react-scroll";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+gsap.registerPlugin(ScrollTrigger);
+
 const Home = () => {
   const classes = useStyles();
 
@@ -19,15 +23,11 @@ const Home = () => {
     >
       <ThemeProvider theme={theme}>
         <Container className={classes.subContainer}>
-          <Paper elevation={13} className={classes.headingWrapper}>
+          <div className={classes.headingWrapper}>
             <div className={classes.headingInnerWrapper}>
               <div>
                 <h1 className={classes.txtHeading}>
-                  Hello, I'm{" "}
-                  <span className={classes.mainHeadingName}>
-                    {" "}
-                    Jonathan Villa!
-                  </span>
+                  Hello, I'm Jonathan Villa!
                 </h1>
               </div>
               <div className={classes.subHeadingWrapper}>
@@ -52,7 +52,7 @@ const Home = () => {
                 </Button>
               </div>
             </div>
-          </Paper>
+          </div>
 
           <div className="bg-imgWrapper">
             <img className="bg-img" src={BgImg} />
@@ -65,10 +65,11 @@ const Home = () => {
 
 const useStyles = makeStyles((theme) => ({
   rootContainer: {
-    height: "60.5rem",
+    height: "61rem",
     maxWidth: "100%",
     display: "flex",
     zIndex: 1,
+    backgroundColor: "#223843",
   },
   subContainer: {
     marginTop: "4.25rem",
@@ -80,24 +81,13 @@ const useStyles = makeStyles((theme) => ({
 
     [theme.breakpoints.down("md")]: {
       maxWidth: "100%",
-      paddingLeft: "0px",
-      paddingRight: "0px",
-      justifyContent: "center",
-      alignItems: "flex-start",
-    },
-
-    [theme.breakpoints.down("sm")]: {
-      maxWidth: "100%",
-      paddingLeft: "0px",
-      paddingRight: "0px",
     },
   },
 
   headingWrapper: {
     position: "relative",
-    backgroundColor: "#223843",
-    top: "-3.5rem",
-    padding: "40px",
+    background: "#223843",
+    top: "-7.5rem",
     boxSizing: "border-box",
     height: "38rem",
     maxWidth: "70rem",
@@ -105,14 +95,12 @@ const useStyles = makeStyles((theme) => ({
     letterSpacing: ".1rem",
 
     [theme.breakpoints.down("md")]: {
-      top: "0%",
       height: "100%",
       maxWidth: "100%",
       borderRadius: "0px",
     },
 
     [theme.breakpoints.down("xs")]: {
-      padding: "24px",
       display: "flex",
     },
   },
@@ -159,12 +147,9 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: "80%",
 
     [theme.breakpoints.down("md")]: {
-      maxWidth: "90%",
+      maxWidth: "70%",
     },
     [theme.breakpoints.down("sm")]: {
-      maxWidth: "95%",
-    },
-    [theme.breakpoints.down("xs")]: {
       maxWidth: "100%",
     },
   },
@@ -186,12 +171,8 @@ const useStyles = makeStyles((theme) => ({
     },
 
     [theme.breakpoints.down("xs")]: {
-      fontSize: "1.1rem",
+      fontSize: ".98rem",
       lineHeight: "1.8rem",
-    },
-
-    "@media(max-width:485px)": {
-      fontSize: "1rem",
     },
   },
   imgSvgWrapper: {
@@ -211,7 +192,7 @@ const useStyles = makeStyles((theme) => ({
     zIndex: 999,
     letterSpacing: ".1rem",
     color: "#eff1f3",
-    fontSize: ".85rem",
+    fontSize: "1rem",
 
     [theme.breakpoints.down("md")]: {
       fontSize: ".96rem",

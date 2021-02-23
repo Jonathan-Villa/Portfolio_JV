@@ -5,6 +5,7 @@ import { FaReact, FaNodeJs } from "react-icons/fa";
 
 const projects = [
   {
+    index: 0,
     name: "Head Start",
     tools: (
       <>
@@ -30,6 +31,7 @@ const projects = [
     repo: "https://github.com/Jonathan-Villa/headstart.git",
   },
   {
+    index: 1,
     name: "E-commerce",
     tools: (
       <>
@@ -55,6 +57,7 @@ const projects = [
     btnTitle: "Github",
   },
   {
+    index: '2',
     name: "Live Chat",
     tools: (
       <>

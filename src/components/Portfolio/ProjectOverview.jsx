@@ -10,11 +10,14 @@ import IconButton from "@material-ui/core/IconButton";
 import Paper from "@material-ui/core/Paper";
 import { FaArrowCircleDown } from "react-icons/fa";
 import ProjectInfo from "./ProjectInfo";
+
+import "./styles.scss";
 gsap.registerPlugin(ScrollTrigger);
 
 function ProjectOverview() {
   const classes = useStyles();
   const ref = React.useRef([]);
+  const refBtn = React.useRef();
   const [openDropDown, setDropDown] = React.useState(false);
 
   React.useEffect(() => {
@@ -49,12 +52,6 @@ function ProjectOverview() {
     }
   };
 
-  const handleDropDownClick = (key) => {
-    if(key){
-      setDropDown(!openDropDown);
-    }
-  };
-
   return (
     <>
       {projects.map((m, key) => (
@@ -80,19 +77,8 @@ function ProjectOverview() {
               <img src={m.url} className={classes.img} />
               <div className={classes.imgBackDrop} />
             </div>
-            <div className={classes.dropDown}>
-              <IconButton onClick={() => handleDropDownClick(key)}>
-                <FaArrowCircleDown
-                  className={
-                    openDropDown
-                      ? classes.arrowIconActive
-                      : classes.arrowIconInactive
-                  }
-                />
-              </IconButton>
-            </div>
 
-            <ProjectInfo open={openDropDown} name={m.name} tools={m.tools} />
+            <ProjectInfo name={m.name} tools={m.tools} />
           </Container>
 
           <Divider
@@ -188,18 +174,12 @@ const useStyles = makeStyles((theme) => ({
   dropDown: {
     backgroundColor: "#ffffff",
     width: "100%",
-    height: "auto",
+    height: "100%",
     marginTop: "0.9375rem",
     marginBottom: "0.9375rem",
-    display: "flex",
-    justifyContent: "flex-end",
   },
 
   arrowIconActive: {
-    transform: "rotate(-180deg)",
-    transition: ".3s ease",
-  },
-  arrowIconInactive: {
     transform: "rotate(0deg)",
     transition: ".3s ease",
   },

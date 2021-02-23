@@ -23,7 +23,6 @@ function App() {
         message={state.message}
         severity={state.severity}
       />
-
       <Home />
       <Portfolio />
     </>

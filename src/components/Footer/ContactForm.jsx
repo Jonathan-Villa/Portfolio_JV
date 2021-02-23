@@ -19,6 +19,8 @@ function ContactForm() {
   const handleChange = (e) => {
     const value = e.target.value;
 
+
+
     setInput({ ...userInput, [e.target.name]: value });
   };
 
@@ -42,7 +44,7 @@ function ContactForm() {
   };
 
   return (
-    <Grid className={classes.rightFooterWrapper} item xs={12} sm={12} md={8} lg={7}>
+    <Grid className={classes.rightFooterWrapper} item xs={12} sm={12} lg={12}>
       <form
         onChange={handleChange}
         onSubmit={handleSubmit}
@@ -103,10 +105,7 @@ function ContactForm() {
 
 const useStyles = makeStyles((theme) => ({
   rightFooterWrapper: {
-    
-    marginRight: "30px",
     fontSize: "1.0em",
-  
 
     [theme.breakpoints.down("sm")]: {
       marginRight: "0px",
@@ -120,7 +119,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     width: "100%",
     height: "18em",
-    padding: "15px 0px",
+    padding: "0.9375rem 0px",
   },
   txtFieldWrapper: {
     display: "flex",
@@ -132,13 +131,51 @@ const useStyles = makeStyles((theme) => ({
   txtField: {},
   btnSubmit: {
     width: "30%",
+    zIndex: "1",
+    transition: ".3s ease",
+    "&:hover": {
+      color: "#ffffff",
+    },
+
+    "&:after": {
+      transition: "1s ease",
+    },
+
+    "&:hover:after": {
+      content: "''",
+      display: "block",
+      width: "0%",
+      zIndex: "-1",
+      top: "0",
+      bottom: "0",
+      left: "0",
+      right: "0",
+      height: "100%",
+      position: "absolute",
+      backgroundColor: "#0094d8",
+      animationDirection: "alternate",
+      animation: "$btnSubmitAnim .2s ease-in-out",
+      animationFillMode: "forwards",
+      animationTimingFunction: "linear",
+    },
+  },
+
+  "@keyframes btnSubmitAnim": {
+    "0%": {
+      paddingRight: "0%",
+      opacity:"0"
+    },
+    "100%": {
+      opacity:"1",
+      paddingRight: "100%",
+    },
   },
 }));
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#2176ff",
+      main: "#0094d8",
     },
     secondary: {
       main: "#f79824",

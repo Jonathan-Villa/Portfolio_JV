@@ -15,23 +15,14 @@
 }
 
 .footerSpan {
-    padding-right: 20px;
+    padding-right: 0.7rem;
+    padding-left: 0.7rem;
 }
 
 .footerSpanInfo {
     width: 100%;
     text-align: left;
     height: auto;
-}
-
-.linkBtn {
-    cursor: pointer;
-    font-size: 0.98em;
-    position: relative;
-    text-align: center;
-    width: 100%;
-    transition: 1s;
-    padding: 7px 14px 9px;
 }
 
 @keyframes contactSvgAnimate {
@@ -44,5 +35,48 @@
         transition: 3s;
         height: 100%;
         display: inline-block;
+    }
+}
+
+.linkBtn {
+    cursor: pointer;
+    font-size: 0.98em;
+    position: relative;
+    text-align: center;
+    width: auto;
+    margin-left: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.linkBtn:hover::after {
+    content: "";
+    height: 0.2rem;
+    width: 0px;
+    position: absolute;
+    animation: footerNavLinksAnim 0.3s ease;
+    animation-fill-mode: forwards;
+    background-color: #0e76a8;
+    display: block;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+
+@media (max-width: 600px) {
+    .linkBtn {
+        margin-left: 0rem;
+        margin-right: 2rem;
+        margin-top: 0.9375rem;
+        font-size: .90rem;
+        
+    }
+}
+
+@keyframes footerNavLinksAnim {
+    0% {
+        padding-right: 0%;
+    }
+    100% {
+        padding-right: 100%;
     }
 }

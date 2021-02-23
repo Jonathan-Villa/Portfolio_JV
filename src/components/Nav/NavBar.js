@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import { AppBar, List, ListItem } from "@material-ui/core";
 import { useStyles } from "./styles";
 import { Link } from "react-scroll";
@@ -12,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const linkItems = [
   { title: "Home", to: "home" },
   { title: "Portfolio", to: "projects" },
-  { title: "Resume", to: "resume" },
+  { title: "Contact", to: "contact" },
 ];
 
 const fontSizeLink = {
@@ -27,10 +27,11 @@ const menuDisplay = {
 
 function NavBar() {
   const classes = useStyles();
-  const [open, setOpen] = useState(false);
-  const ref = useRef(null);
+  const [open, setOpen] = React.useState(false);
+  const ref = React.useRef(null);
+  const pref = 0;
 
-  useEffect(() => {
+  React.useEffect(() => {
     let navAnim = gsap.to(ref.current, {
       y: "-=90",
       color: "#ffff",
@@ -51,12 +52,34 @@ function NavBar() {
         } else if (direction === 1 && isActive === true) {
           navAnim.play();
         }
+
+        // check window on every render
+        if (window.innerWidth < 1280) {
+          ScrollTrigger.getById("appBarID").disable() ||
+            navAnim.pause(0).kill(true);
+        } else {
+          ScrollTrigger.getById("appBarID").enable();
+        }
       },
     });
+
+    const checkWindowWidth = () => {
+      // check width of window when resized
+      window.addEventListener("resize", () => {
+        if (window.innerWidth < 1280) {
+          return (
+            ScrollTrigger.getById("appBarID").disable() ||
+            navAnim.pause(0).kill(true)
+          );
+        } else {
+          return ScrollTrigger.getById("appBarID").enable();
+        }
+      });
+    };
+    checkWindowWidth();
   }, []);
 
-  const handleMenuClose = (e) => {
-    console.log(e);
+  const handleMenuClose = () => {
     setOpen(!open);
   };
 
@@ -72,20 +95,25 @@ function NavBar() {
 
   return (
     <>
-      <AppBar position="fixed" className={classes.appBar}>
+      <AppBar
+        id="appBarID"
+        ref={ref}
+        position="fixed"
+        className={classes.appBar}
+      >
         <div className={classes.mobileDisableWrapper}>
           <IconButton
             className={classes.btnActiveMenu}
             onClick={handleMenuClose}
           >
             {open ? (
-              <AiOutlineClose size="30px" fill="#000000" />
+              <AiOutlineClose size="30px" fill="#eff1f3" />
             ) : (
-              <AiOutlineMenu size="30px" fill="#000000" />
+              <AiOutlineMenu size="30px" fill="#eff1f3" />
             )}
           </IconButton>
         </div>
-        <nav id="appBarID" ref={ref} className={classes.desktopNavBar}>
+        <nav className={classes.desktopNavBar}>
           {navLogo}
           <DrawerList />
         </nav>
@@ -115,7 +143,7 @@ const DrawerList = ({ handleListItemClick }) => {
     <List className={classes.list}>
       {linkItems.map((m, key) => (
         <Link
-          onClick={(e) => handleListItemClick(e)}
+          onClick={handleListItemClick}
           key={key}
           className={classes.link}
           style={fontSizeLink}

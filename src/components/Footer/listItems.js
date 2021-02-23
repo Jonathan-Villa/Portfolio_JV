@@ -15,14 +15,6 @@ export const nav = [
 
 export const icons = [
   {
-    icon: <AiFillPhone id="footerIcons" size="1.7em" />,
-    info: "(815) 666 - 0808",
-  },
-  {
-    icon: <AiOutlineMail className="footerIcons" size="1.7em" />,
-    info: "Jonathanvilla03@gmail.com",
-  },
-  {
     icon: (
       <AiOutlineGithub className="svg iconGitHub" size="1.7em" fill="#000" />
     ),

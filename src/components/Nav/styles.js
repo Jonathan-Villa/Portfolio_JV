@@ -5,20 +5,20 @@ export const useStyles = makeStyles((theme) => ({
     height: "4.25rem",
     display: "flex",
     zIndex: "99999999",
-    justifyContent: "center",
+    alignItems: "center",
+    justifyContent:"space-between",
     boxShadow: "none",
-    backgroundColor: "transparent",
     width: "100%",
-
+    backgroundColor: "#223843",
     [theme.breakpoints.down("md")]: {
       alignItems: "flex-start",
     },
   },
   desktopNavBar: {
     color: "#ffffff",
-    width: "100%",
+    width: "85%",
     display: "flex",
-    backgroundColor: "#eff1f3",
+    
     justifyContent: "space-between",
     height: "100%",
     alignItems: "center",
@@ -33,7 +33,7 @@ export const useStyles = makeStyles((theme) => ({
     width: "100%",
     justifyContent: "flex-end",
     position: "relative",
-    height: "100%",
+
     color: "#000000",
     marginRight: ".625rem",
 
@@ -49,19 +49,42 @@ export const useStyles = makeStyles((theme) => ({
     width: "8rem",
     marginRight: "1rem",
     textAlign: "center",
-    height: "auto",
+    height: "3rem",
     position: "relative",
-    color: "#000000",
+    color: "#eff1f3",
     letterSpacing: ".04rem",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",
 
-    "&:hover": {
+    "&after:": {
+      content: "''",
+      marginTop: "30px",
+      width: "0%",
+      bottom: "0",
+      left: "0",
+      right: "0",
+      position: "absolute",
       backgroundColor: "#ccc",
+      transition: "1s ease",
+    },
+    "&:hover:after": {
+      content: "''",
+      height: ".2rem",
 
-      transition: ".2s ease",
+      animation: "$hoverLink .3s ease",
+      width: "0px",
+      bottom: "0",
+      left: "0",
+      animationFillMode: "forwards",
+      right: "0",
+      position: "absolute",
+      animationTimingFunction: "linear",
+      animationDirection: "alternate",
+      backgroundColor: "#0094d8",
+      display: "block",
+      transition: "1s ease",
     },
     [theme.breakpoints.down("md")]: {
       width: "100%",
@@ -71,9 +94,12 @@ export const useStyles = makeStyles((theme) => ({
 
       justifyContent: "flex-start",
 
+      "&:hover:after": {
+        display: "none",
+      },
+
       "&:hover": {
         backgroundColor: "#ccc",
-
         transition: ".2s ease",
       },
     },
@@ -82,25 +108,36 @@ export const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
     marginLeft: "1.625rem",
-    height: "100%",
-    width: "8rem",
+    width: "fit-content",
     alignItems: "center",
-    position: "static",
+    position: "relative",
+    height: "2rem",
+    margin: "0px 2rem",
+
+    "&:hover:after": {
+      content: "''",
+      height: ".18rem",
+      animation: "$hoverLink .3s ease",
+      width: "0px",
+      bottom: "0",
+      left: "0",
+      animationFillMode: "forwards",
+      right: "0",
+      position: "absolute",
+      backgroundColor: "#0094d8",
+      display: "block",
+    },
     [theme.breakpoints.down("md")]: {
       display: "none",
     },
   },
   topNavLogo: {
-    height: "100%",
     textDecoration: "none",
     fontSize: "1.1rem",
     cursor: "pointer",
     display: "block",
     letterSpacing: ".1rem",
-    color: "#000000",
-    "&:hover": {
-      color: "#f79824",
-    },
+    color: "#eff1f3",
 
     [theme.breakpoints.down("md")]: {
       display: "none",
@@ -135,7 +172,7 @@ export const useStyles = makeStyles((theme) => ({
       justifyContent: "space-between",
       boxSizing: "border-box",
       padding: ".625rem 0px",
-      backgroundColor: "#0094d8",
+      backgroundColor: "#223843",
     },
   },
 
@@ -156,5 +193,14 @@ export const useStyles = makeStyles((theme) => ({
   listMobileWrapper: {
     height: "auto",
     width: "100%",
+  },
+
+  "@keyframes hoverLink": {
+    "0%": {
+      paddingRight: "0%",
+    },
+    "100%": {
+      paddingRight: "100%",
+    },
   },
 }));
