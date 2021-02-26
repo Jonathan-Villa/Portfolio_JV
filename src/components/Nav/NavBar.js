@@ -1,5 +1,5 @@
 import React from "react";
-import { AppBar, List, ListItem } from "@material-ui/core";
+import { AppBar, List } from "@material-ui/core";
 import { useStyles } from "./styles";
 import { Link } from "react-scroll";
 import IconButton from "@material-ui/core/IconButton";
@@ -29,7 +29,6 @@ function NavBar() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const ref = React.useRef(null);
-  const pref = 0;
 
   React.useEffect(() => {
     let navAnim = gsap.to(ref.current, {

@@ -1,8 +1,6 @@
 import {
   AiOutlineGithub,
   AiFillLinkedin,
-  AiFillPhone,
-  AiOutlineMail,
 } from "react-icons/ai";
 
 import "./style.css";

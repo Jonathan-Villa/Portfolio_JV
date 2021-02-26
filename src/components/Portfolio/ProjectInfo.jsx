@@ -14,7 +14,6 @@ function ProjectInfo({ name, tools, description, open }) {
         <h2>{name}</h2>
       </div>
       <div className={classes.projectInnerDescWrapper}>
-        <div className={classes.projectInnerIconsWrapper}>{tools}</div>
         <div className={classes.projectInnerTextWrapper}>
           <p>Describe</p>
         </div>
@@ -33,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     display: "block",
     left: "-.7rem",
+    boxSizing: "border-box",
+    padding: "1rem",
 
     [theme.breakpoints.down("md")]: {
       height: "23rem",
@@ -76,9 +77,9 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
   },
 
-  disableDropDown:{
-      transform:""
-  }
+  disableDropDown: {
+    transform: "",
+  },
 }));
 
 export default ProjectInfo;

@@ -2,7 +2,6 @@ import React from "react";
 import { Container } from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import "./styles.css";
-import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 import BgImg from "../../images/landPageSVG.svg";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core";
@@ -25,7 +24,7 @@ const Home = () => {
         <Container className={classes.subContainer}>
           <div className={classes.headingWrapper}>
             <div className={classes.headingInnerWrapper}>
-              <div>
+              <div className="main-heading">
                 <h1 className={classes.txtHeading}>
                   Hello, I'm Jonathan Villa!
                 </h1>

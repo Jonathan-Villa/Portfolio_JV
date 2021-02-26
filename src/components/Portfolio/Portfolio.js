@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-start",
     maxWidth: "100%",
     height: "auto",
-    marginTop:"5rem",
+    marginTop: "5rem",
     marginBottom: "5rem",
   },
 }));

@@ -24,23 +24,21 @@ function ProjectOverview() {
     gsap.fromTo(
       ref.current,
       {
-        xPercent: -80,
-        ease: "ease-in",
+        transform: "translate3d(10rem, 20rem, 0)",
         autoAlpha: 0,
       },
       {
         autoAlpha: 1,
-        xPercent: 0,
-        stagger: {
-          from: "start",
-          amount: 1,
-        },
+        transform: "translate3d(0, 0 , 0)",
+        duration: 1,
+        stagger: 1,
         scrollTrigger: {
-          scrub: 1.5,
+          scrub: 1,
           id: "cards",
-          start: "500rem 450rem",
-          end: "center 100rem",
-          toggleActions: "play none none none",
+          toggleActions: "play",
+          markers: true,
+          start: "top+=200rem top",
+          end: "bottom-=700rem center+=300rem",
         },
       }
     );
@@ -97,6 +95,7 @@ function ProjectOverview() {
 
 const useStyles = makeStyles((theme) => ({
   gridItemWrapper: {
+    overflow: "hidden",
     boxSizing: "border-box",
     paddingTop: "5rem",
     paddingBottom: "5rem",
